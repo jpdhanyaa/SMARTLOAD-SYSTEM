@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notifications | SmartLoad AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#ffdad7",
+                        "primary-container": "#43806a",
+                        "on-secondary-container": "#fffbff",
+                        "on-primary-fixed-variant": "#0b513d",
+                        "outline-variant": "#bccac0",
+                        "on-background": "#131b2e",
+                        "secondary-fixed": "#e2dfff",
+                        "inverse-surface": "#283044",
+                        "primary-fixed-dim": "#95d3ba",
+                        "surface-bright": "#faf8ff",
+                        "secondary": "#4b41e1",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#dae2fd",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#3d4a42",
+                        "on-primary-container": "#f5fff8",
+                        "on-tertiary-fixed": "#410004",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#dae2fd",
+                        "surface-container-high": "#e2e7ff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#002117",
+                        "surface-dim": "#d2d9f4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#131b2e",
+                        "tertiary-container": "#ba5551",
+                        "on-tertiary-container": "#fffbff",
+                        "surface": "#faf8ff",
+                        "on-secondary-fixed-variant": "#3323cc",
+                        "secondary-container": "#645efb",
+                        "surface-container": "#eaedff",
+                        "primary-fixed": "#b0f0d6",
+                        "outline": "#6d7a72",
+                        "on-tertiary-fixed-variant": "#7f2928",
+                        "background": "#faf8ff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#9b3e3b",
+                        "surface-tint": "#2b6954",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "inverse-primary": "#95d3ba",
+                        "on-secondary-fixed": "#0f0069",
+                        "surface-container-low": "#f2f3ff",
+                        "tertiary-fixed-dim": "#ffb3ae",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#eef0ff",
+                        "primary": "#286652"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+<nav class="fixed top-0 w-full z-50 bg-emerald-900/60 dark:bg-emerald-950/60 backdrop-blur-xl shadow-2xl shadow-emerald-950/20 font-manrope antialiased tracking-tight">
+<div class="flex justify-between items-center px-6 py-3 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-white uppercase">SmartLoad AI</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-emerald-100/70 hover:text-white transition-colors" href="#">Dashboard</a>
+<a class="text-emerald-100/70 hover:text-white transition-colors" href="#">Logistics</a>
+<a class="text-white font-bold border-b-2 border-emerald-400 pb-1" href="#">Notifications</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-emerald-100/70 hover:bg-white/5 transition-all p-2 rounded-full active:scale-95">notifications</button>
+<button class="material-symbols-outlined text-emerald-100/70 hover:bg-white/5 transition-all p-2 rounded-full active:scale-95">settings</button>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-xs font-bold text-white border border-white/20 overflow-hidden">
+<img alt="User Avatar" data-alt="Corporate professional user avatar portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxwP0RZXS3Bd4eDfmHj97KkL6H3GfoSa5BBCmiKKgd6Wvly2SH1L5urBAVWRM6RlsaXHqx5htiLKlIbykYRUHBM3J0wkqNso9BigMIX7y2drn_GPNjrVQWf3OM4eNLs12o5pxqNVmkiYi5m0IoBrlTDbXd7n7ZSZJeD9SZ-xNExnSrL5Q-s0nubjWcZbUZqABKu7u_tLeQIuSItMSYUkhhZx7cudV1Ch4YjwKE4TxyOi3JIj93fCHmElkFFerdliYRi-jYrawCTKI"/>
+</div>
+</div>
+</div>
+<div class="bg-gradient-to-r from-emerald-800 to-emerald-900 h-[1px] opacity-20"></div>
+</nav>
+<aside class="hidden lg:flex fixed left-0 top-0 h-full w-64 z-40 bg-[#283044] dark:bg-[#131B2E] shadow-[4px_0_24px_rgba(0,0,0,0.3)] flex-col pt-20 pb-8 h-full gap-2 font-manrope text-sm font-medium tracking-wide">
+<div class="px-6 mb-6">
+<h2 class="text-lg font-black text-white">Precision Monolith</h2>
+<p class="text-[10px] text-emerald-500/70 uppercase tracking-widest">Logistics Intelligence</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="text-slate-400 hover:text-white px-4 py-3 ml-2 hover:bg-slate-700/50 transition-all hover:translate-x-1 duration-200 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+                Dashboard
+            </a>
+<a class="text-slate-400 hover:text-white px-4 py-3 ml-2 hover:bg-slate-700/50 transition-all hover:translate-x-1 duration-200 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-lg">local_shipping</span>
+                Logistics
+            </a>
+<a class="text-slate-400 hover:text-white px-4 py-3 ml-2 hover:bg-slate-700/50 transition-all hover:translate-x-1 duration-200 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-lg">auto_awesome</span>
+                Optimization
+            </a>
+<a class="bg-emerald-800/40 text-emerald-400 border-l-4 border-emerald-500 px-4 py-3 ml-2 rounded-l-lg flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+                Notifications
+            </a>
+<a class="text-slate-400 hover:text-white px-4 py-3 ml-2 hover:bg-slate-700/50 transition-all hover:translate-x-1 duration-200 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-lg">settings_suggest</span>
+                System Preferences
+            </a>
+</nav>
+<div class="mt-auto px-4">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-3 rounded-xl font-bold text-xs uppercase tracking-tighter shadow-lg shadow-emerald-900/40 active:scale-95 transition-transform">
+                New Optimization
+            </button>
+</div>
+<div class="mt-4 flex flex-col gap-1 border-t border-slate-700/50 pt-4">
+<a class="text-slate-400 hover:text-white px-4 py-2 ml-2 flex items-center gap-3" href="#"><span class="material-symbols-outlined text-sm">help</span> Support</a>
+<a class="text-slate-400 hover:text-white px-4 py-2 ml-2 flex items-center gap-3" href="#"><span class="material-symbols-outlined text-sm">person</span> Account</a>
+</div>
+</aside>
+<main class="lg:ml-64 pt-24 px-6 pb-12 min-h-screen bg-surface">
+<div class="max-w-5xl mx-auto">
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+<div>
+<span class="label-sm font-bold uppercase tracking-widest text-secondary mb-2 block">Central Nerve Center</span>
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tighter text-on-background">System Alerts</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-5 py-2.5 bg-surface-container-highest text-on-secondary-fixed-variant font-bold text-sm rounded-xl hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined text-lg">done_all</span>
+                        Mark all as read
+                    </button>
+</div>
+</header>
+<section class="flex flex-wrap items-center gap-2 mb-8 p-1 bg-surface-container-low rounded-xl w-fit">
+<button class="px-6 py-2 bg-primary text-on-primary rounded-lg text-sm font-bold shadow-md">All Activities</button>
+<button class="px-6 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg text-sm font-medium transition-all">Optimizations</button>
+<button class="px-6 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg text-sm font-medium transition-all">Security</button>
+<button class="px-6 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg text-sm font-medium transition-all">Maintenance</button>
+<button class="px-6 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg text-sm font-medium transition-all">Account</button>
+</section>
+<div class="space-y-4">
+<div class="relative group bg-surface-container-lowest rounded-xl p-5 shadow-sm hover:shadow-xl hover:shadow-emerald-950/5 transition-all duration-300 flex items-start gap-5">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-l-xl"></div>
+<div class="w-12 h-12 flex-shrink-0 bg-primary-container/10 rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg text-on-surface">Optimization Complete: North-East Hub</h3>
+<span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider bg-surface-container px-2 py-1 rounded">2 min ago</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed max-w-2xl">
+                            The load sequence for <span class="font-bold text-primary">Fleet-2901</span> has been successfully optimized. Achieved <span class="font-bold text-primary">14% better fuel efficiency</span> and reduced deadhead miles by 22.
+                        </p>
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 text-primary font-bold text-sm hover:underline decoration-2 underline-offset-4" href="#">
+                                View Full Analysis
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="flex-shrink-0">
+<div class="w-2.5 h-2.5 bg-primary rounded-full shadow-[0_0_8px_rgba(40,102,82,0.6)]"></div>
+</div>
+</div>
+<div class="relative group bg-surface-container-lowest rounded-xl p-5 shadow-sm hover:shadow-xl hover:shadow-emerald-950/5 transition-all duration-300 flex items-start gap-5">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary rounded-l-xl"></div>
+<div class="w-12 h-12 flex-shrink-0 bg-secondary-fixed rounded-xl flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">lock_open</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg text-on-surface">New Device Login Detected</h3>
+<span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider bg-surface-container px-2 py-1 rounded">1 hour ago</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed">
+                            A login attempt was recorded from a Chrome browser on a Linux device in <span class="font-bold">Frankfurt, DE</span>. If this wasn't you, please secure your account immediately.
+                        </p>
+<button class="px-4 py-2 bg-secondary text-white text-xs font-bold rounded-lg hover:bg-on-secondary-fixed-variant transition-colors shadow-lg shadow-secondary/20">
+                            Secure Account
+                        </button>
+</div>
+<div class="flex-shrink-0">
+<div class="w-2.5 h-2.5 bg-secondary rounded-full shadow-[0_0_8px_rgba(75,65,225,0.6)]"></div>
+</div>
+</div>
+<div class="group bg-surface-container-low/50 rounded-xl p-5 border border-transparent hover:border-outline-variant/30 transition-all duration-300 flex items-start gap-5 opacity-80">
+<div class="w-12 h-12 flex-shrink-0 bg-surface-container-high rounded-xl flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-2xl">engineering</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg text-on-surface">Scheduled Maintenance Window</h3>
+<span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider bg-surface-container px-2 py-1 rounded">4 hours ago</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                            SmartLoad AI will undergo a database synchronization on <span class="font-bold">Sunday, Oct 24th between 02:00 and 04:00 UTC</span>. Real-time tracking will remain operational.
+                        </p>
+</div>
+</div>
+<div class="relative group bg-surface-container-lowest rounded-xl p-5 shadow-sm hover:shadow-xl hover:shadow-emerald-950/5 transition-all duration-300 flex items-start gap-5">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary rounded-l-xl"></div>
+<div class="w-12 h-12 flex-shrink-0 bg-tertiary-fixed rounded-xl flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg text-on-surface">Subscription Tier Elevated</h3>
+<span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider bg-surface-container px-2 py-1 rounded">Yesterday</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed">
+                            Welcome to <span class="font-bold text-tertiary">Enterprise Elite</span>. Your organization now has access to multi-modal predictive modeling and unlimited API endpoints.
+                        </p>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 bg-on-background text-white text-xs font-bold rounded-lg hover:bg-slate-700 transition-colors">Explore New Features</button>
+</div>
+</div>
+<div class="flex-shrink-0">
+<div class="w-2.5 h-2.5 bg-tertiary rounded-full shadow-[0_0_8px_rgba(155,62,59,0.6)]"></div>
+</div>
+</div>
+<div class="group bg-surface-container-low/50 rounded-xl p-5 border border-transparent hover:border-outline-variant/30 transition-all duration-300 flex items-start gap-5 opacity-80">
+<div class="w-12 h-12 flex-shrink-0 bg-surface-container-high rounded-xl flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-2xl">auto_awesome</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg text-on-surface">Optimization Complete: South-West Cluster</h3>
+<span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider bg-surface-container px-2 py-1 rounded">Yesterday</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                            Batch processing for the Austin-Houston corridor has finished. 124 routes re-sequenced for maximum density.
+                        </p>
+</div>
+</div>
+</div>
+<div class="mt-12 p-12 rounded-3xl border-2 border-dashed border-outline-variant/20 flex flex-col items-center justify-center text-center">
+<div class="w-20 h-20 bg-surface-container-low rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-4xl text-outline-variant">history</span>
+</div>
+<h4 class="text-xl font-bold text-on-surface mb-2">No older notifications</h4>
+<p class="text-on-surface-variant max-w-sm">We only store your last 30 days of activity to ensure peak performance of your Monolith dashboard.</p>
+</div>
+</div>
+</main>
+<div class="lg:hidden fixed bottom-0 w-full bg-white/90 backdrop-blur-md border-t border-outline-variant/10 px-6 py-3 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Ship</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Alerts</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Me</span>
+</button>
+</div>
+</body></html>
