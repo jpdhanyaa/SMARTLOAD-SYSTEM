@@ -3,7 +3,8 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Optimization History | SmartLoad AI</title>
+<title>SmartLoad AI</title>
+<link rel="icon" type="image/png" href="logo.png">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -83,96 +84,80 @@
 <body class="bg-surface text-on-surface">
 <aside class="fixed left-0 top-0 h-full w-64 z-40 bg-slate-900 flex flex-col pt-20 pb-6 shadow-2xl shadow-emerald-900/20">
 <div class="px-6 mb-10">
-<h1 class="text-emerald-50 text-lg font-black uppercase tracking-tighter">Global Logistics</h1>
-<p class="text-slate-400 text-xs font-medium">Terminal A-12</p>
+<h1 class="text-emerald-50 text-lg font-black uppercase tracking-tighter">AI System</h1>
+<p class="text-slate-400 text-xs font-medium">OPTIMIZATION  MODULE</p>
 </div>
 <nav class="flex-1 space-y-1">
-<a class="text-slate-400 hover:text-emerald-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold hover:bg-slate-800 transition-all duration-200 hover:translate-x-1" href="#">
+<a class="text-slate-400 hover:text-emerald-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold hover:bg-slate-800 transition-all duration-200 hover:translate-x-1" href="home.html">
 <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
                 Home
             </a>
-<a class="text-slate-400 hover:text-emerald-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold hover:bg-slate-800 transition-all duration-200 hover:translate-x-1" href="#">
+<a class="text-slate-400 hover:text-emerald-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold hover:bg-slate-800 transition-all duration-200 hover:translate-x-1" href="optimization.html">
 <span class="material-symbols-outlined" data-icon="add_chart">add_chart</span>
                 New Optimization
             </a>
-<a class="bg-emerald-800/40 text-emerald-400 border-l-4 border-emerald-500 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold" href="#">
+<a class="bg-emerald-800/40 text-emerald-400 border-l-4 border-emerald-500 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold" href="history.html">
 <span class="material-symbols-outlined" data-icon="history">history</span>
                 History
             </a>
-<a class="text-slate-400 hover:text-emerald-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold hover:bg-slate-800 transition-all duration-200 hover:translate-x-1" href="#">
+<a class="text-slate-400 hover:text-emerald-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold hover:bg-slate-800 transition-all duration-200 hover:translate-x-1" href="settings.html">
 <span class="material-symbols-outlined" data-icon="settings">settings</span>
                 Settings
             </a>
 </nav>
 <div class="px-4 mt-auto">
-<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 active:scale-95 duration-150 shadow-lg shadow-primary/20">
-<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
-                New Shipment
-            </button>
 </div>
 </aside>
 <header class="fixed top-0 w-full z-50 bg-white/60 backdrop-blur-md flex justify-between items-center px-6 py-3 w-full shadow-sm">
 <div class="flex items-center gap-8 ml-64">
 <span class="text-xl font-bold tracking-tighter text-emerald-900">SmartLoad AI</span>
-<nav class="hidden md:flex items-center gap-6">
-<a class="text-slate-600 hover:text-emerald-900 font-manrope text-sm font-medium tracking-tight transition-colors duration-200" href="#">Projects</a>
-<a class="text-slate-600 hover:text-emerald-900 font-manrope text-sm font-medium tracking-tight transition-colors duration-200" href="#">Documentation</a>
-</nav>
 </div>
 <div class="flex items-center gap-4">
 <div class="relative group">
 <span class="absolute inset-y-0 left-3 flex items-center text-slate-400">
 <span class="material-symbols-outlined text-sm" data-icon="search">search</span>
 </span>
-<input class="pl-10 pr-4 py-1.5 bg-surface-container rounded-full border-none text-sm focus:ring-2 focus:ring-secondary w-64 transition-all" placeholder="Search projects..." type="text"/>
+<input id="searchInput" class="pl-10 pr-4 py-1.5 bg-surface-container rounded-full border-none text-sm focus:ring-2 focus:ring-secondary w-64 transition-all" placeholder="Search projects..." type="text"/>
 </div>
+<a href="not.html">
 <button class="p-2 text-emerald-900 hover:bg-emerald-50 rounded-full transition-colors active:scale-95">
 <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
 </button>
+</a>
+<a href="profile.html">
 <button class="p-2 text-emerald-900 hover:bg-emerald-50 rounded-full transition-colors active:scale-95">
 <span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
 </button>
+</a>
 </div>
 <div class="bg-slate-100 h-[1px] w-full absolute bottom-0 left-0"></div>
 </header>
 <main class="ml-64 pt-24 pb-12 px-8 min-h-screen">
 <section class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
 <div class="space-y-1">
-<span class="text-secondary font-bold text-xs uppercase tracking-widest">Global Logistics Registry</span>
+<span class="text-secondary font-bold text-xs uppercase tracking-widest">SMARTLOAD AI</span>
 <h2 class="text-3xl font-extrabold text-on-surface tracking-tight">Optimization History</h2>
 </div>
-<div class="flex items-center gap-3">
-<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest text-on-surface-variant rounded-lg font-bold text-xs border border-outline-variant/10 shadow-sm hover:bg-surface-container-high transition-colors">
-<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
-                    FILTER
-                </button>
-<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest text-on-surface-variant rounded-lg font-bold text-xs border border-outline-variant/10 shadow-sm hover:bg-surface-container-high transition-colors">
-<span class="material-symbols-outlined text-sm" data-icon="sort">sort</span>
-                    SORT
-                </button>
 <div class="w-[1px] h-6 bg-outline-variant/20 mx-2"></div>
 <div class="flex bg-surface-container p-1 rounded-lg">
 <button class="p-1.5 bg-white rounded shadow-sm text-primary">
 <span class="material-symbols-outlined text-sm" data-icon="grid_view">grid_view</span>
 </button>
-<button class="p-1.5 text-on-surface-variant">
-<span class="material-symbols-outlined text-sm" data-icon="list">list</span>
-</button>
 </div>
 </div>
 </section>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col border-l-4 border-primary transition-all hover:shadow-lg hover:-translate-y-1 group">
+<div class="project-card bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col border-l-4 border-primary transition-all hover:shadow-lg hover:-translate-y-1 group" data-name="Warehouse Batch A">
 <div class="flex justify-between items-start mb-6">
 <div>
-<h3 class="font-bold text-lg text-on-background tracking-tight group-hover:text-primary transition-colors">Trans-Atlantic Fleet Alpha</h3>
-<p class="text-on-surface-variant text-xs font-medium">October 24, 2024 • ID: 8821-KL</p>
+<h3 class="font-bold text-lg text-on-background tracking-tight group-hover:text-primary transition-colors">Warehouse Batch A</h3>
+<p class="text-on-surface-variant text-xs font-medium">March 18, 2026 • ID: SL-101</p>
 </div>
 <span class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-wider rounded">Completed</span>
 </div>
 <div class="space-y-4 mb-8">
 <div class="flex justify-between text-xs font-bold text-on-surface-variant">
-<span class="uppercase tracking-tighter">Utilization Score</span>
+<span class="uppercase tracking-tighter">SPACE UTILIZATION</span>
 <span class="text-primary">94%</span>
 </div>
 <div class="w-full bg-surface-container rounded-full h-1.5">
@@ -190,11 +175,11 @@
 </button>
 </div>
 </div>
-<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col border-l-4 border-error transition-all hover:shadow-lg hover:-translate-y-1 group">
+<div class="project-card bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col border-l-4 border-error transition-all hover:shadow-lg hover:-translate-y-1 group" data-name="Truck Load Optimization">
 <div class="flex justify-between items-start mb-6">
 <div>
-<h3 class="font-bold text-lg text-on-background tracking-tight group-hover:text-error transition-colors">Nordic Hub Redistribution</h3>
-<p class="text-on-surface-variant text-xs font-medium">October 21, 2024 • ID: 7729-OP</p>
+<h3 class="font-bold text-lg text-on-background tracking-tight group-hover:text-error transition-colors">Truck Load Optimization</h3>
+<p class="text-on-surface-variant text-xs font-medium">March 17, 2026 • ID: SL-102</p>
 </div>
 <span class="px-2 py-1 bg-error/10 text-error text-[10px] font-black uppercase tracking-wider rounded">Alert</span>
 </div>
@@ -210,7 +195,7 @@
 <div class="mt-auto flex justify-between items-center pt-4 border-t border-surface-container">
 <div class="flex items-center gap-2 text-error text-[10px] font-bold">
 <span class="material-symbols-outlined text-xs" data-icon="warning">warning</span>
-                        UNDERLOAD DETECTED
+                      LOW SPACE UTILIZATION DETECTED
                     </div>
 <button class="text-secondary text-xs font-bold hover:underline underline-offset-4 flex items-center gap-1">
                         View Details
@@ -218,11 +203,11 @@
 </button>
 </div>
 </div>
-<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col border-l-4 border-secondary transition-all hover:shadow-lg hover:-translate-y-1 group">
+<div class="project-card bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col border-l-4 border-secondary transition-all hover:shadow-lg hover:-translate-y-1 group" data-name="Container Packing Draft">
 <div class="flex justify-between items-start mb-6">
 <div>
-<h3 class="font-bold text-lg text-on-background tracking-tight group-hover:text-secondary transition-colors">Pacific Coast Corridor</h3>
-<p class="text-on-surface-variant text-xs font-medium">October 19, 2024 • ID: 4410-ZX</p>
+<h3 class="font-bold text-lg text-on-background tracking-tight group-hover:text-secondary transition-colors">Container Packing Draft</h3>
+<p class="text-on-surface-variant text-xs font-medium">March 16, 2026 • ID: SL-103</p>
 </div>
 <span class="px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-black uppercase tracking-wider rounded">Saved</span>
 </div>
@@ -243,70 +228,56 @@
 </button>
 </div>
 </div>
-<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col border-l-4 border-primary transition-all hover:shadow-lg hover:-translate-y-1 group">
-<div class="flex justify-between items-start mb-6">
-<div>
-<h3 class="font-bold text-lg text-on-background tracking-tight group-hover:text-primary transition-colors">Euro-Rail Integration Phase 2</h3>
-<p class="text-on-surface-variant text-xs font-medium">October 15, 2024 • ID: 3391-BT</p>
-</div>
-<span class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-wider rounded">Completed</span>
-</div>
-<div class="space-y-4 mb-8">
-<div class="flex justify-between text-xs font-bold text-on-surface-variant">
-<span class="uppercase tracking-tighter">Utilization Score</span>
-<span class="text-primary">88%</span>
-</div>
-<div class="w-full bg-surface-container rounded-full h-1.5">
-<div class="bg-primary h-1.5 rounded-full" style="width: 88%"></div>
-</div>
-</div>
-<div class="mt-auto flex justify-between items-center pt-4 border-t border-surface-container">
-<div class="flex -space-x-2">
-<div class="w-7 h-7 rounded-full border-2 border-white bg-tertiary-container flex items-center justify-center text-[10px] font-bold text-white">AK</div>
-</div>
-<button class="text-secondary text-xs font-bold hover:underline underline-offset-4 flex items-center gap-1">
-                        View Details
-                        <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
-</button>
-</div>
-</div>
-<div class="bg-surface-container-low rounded-xl p-6 flex flex-col items-center justify-center text-center border-2 border-dashed border-outline-variant hover:border-primary hover:bg-surface-container-high transition-all group cursor-pointer">
+<div class="project-card bg-surface-container-low rounded-xl p-6 flex flex-col items-center justify-center text-center border-2 border-dashed border-outline-variant hover:border-primary hover:bg-surface-container-high transition-all group cursor-pointer">
 <div class="w-16 h-16 bg-surface-container-lowest rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm">
 <span class="material-symbols-outlined text-3xl text-primary" data-icon="add_circle">add_circle</span>
 </div>
-<h3 class="font-bold text-lg text-on-background tracking-tight">Initiate New Analysis</h3>
-<p class="text-on-surface-variant text-sm px-4 mt-2">Scale your load operations with AI-powered spatial logic.</p>
+<h3 class="font-bold text-lg text-on-background tracking-tight">Start New Optimization</h3>
+<p class="text-on-surface-variant text-sm px-4 mt-2">Enter item details and generate an optimized loading plan instantly.</p>
 <div class="mt-8 flex items-center gap-2 text-primary font-black text-xs uppercase tracking-widest">
                     Start Project
                     <span class="material-symbols-outlined text-sm" data-icon="bolt">bolt</span>
 </div>
 </div>
 </div>
-<div class="mt-12 flex justify-between items-center border-t border-surface-container pt-8">
-<p class="text-xs text-on-surface-variant font-medium">Showing <span class="font-bold text-on-surface">4</span> of <span class="font-bold text-on-surface">128</span> past optimizations</p>
-<div class="flex items-center gap-2">
-<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant/10 text-on-surface-variant hover:bg-surface-container">
-<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
-</button>
-<button class="px-3 py-1 bg-primary text-on-primary rounded-lg text-xs font-bold">1</button>
-<button class="px-3 py-1 text-on-surface-variant hover:bg-surface-container rounded-lg text-xs font-bold">2</button>
-<button class="px-3 py-1 text-on-surface-variant hover:bg-surface-container rounded-lg text-xs font-bold">3</button>
-<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant/10 text-on-surface-variant hover:bg-surface-container">
-<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
-</button>
-</div>
-</div>
+<p id="noResult" class="text-center text-gray-500 mt-10 hidden">
+    No results found
+</p>
 </main>
 <footer class="w-full py-4 mt-auto bg-slate-50 border-t border-slate-200 ml-64 max-w-[calc(100%-16rem)]">
 <div class="flex justify-between items-center px-8 w-full">
 <div class="flex items-center gap-4">
-<span class="font-manrope text-xs tracking-normal font-normal text-slate-500">© 2024 SmartLoad AI. System Status: <span class="text-emerald-600 font-bold">Operational</span></span>
+<span class="font-manrope text-xs tracking-normal font-normal text-slate-500">© 2026 SmartLoad AI System</span>
 </div>
 <div class="flex items-center gap-6">
-<a class="font-manrope text-xs text-slate-400 hover:text-emerald-700 underline underline-offset-4 transition-opacity duration-300" href="#">Privacy Policy</a>
-<a class="font-manrope text-xs text-slate-400 hover:text-emerald-700 underline underline-offset-4 transition-opacity duration-300" href="#">Terms of Service</a>
-<a class="font-manrope text-xs text-slate-400 hover:text-emerald-700 underline underline-offset-4 transition-opacity duration-300" href="#">API Status</a>
 </div>
 </div>
 </footer>
+<script>
+const searchInput = document.getElementById("searchInput")
+const cards = document.querySelectorAll(".project-card")
+const noResult = document.getElementById("noResult")
+
+searchInput.addEventListener("input", function () {
+    const value = searchInput.value.toLowerCase()
+    let found = false
+
+    cards.forEach(card => {
+        const name = card.getAttribute("data-name").toLowerCase()
+
+        if (name.includes(value)) {
+            card.style.display = ""  
+            found = true
+        } else {
+            card.style.display = "none"
+        }
+    })
+
+    if (found) {
+        noResult.classList.add("hidden")
+    } else {
+        noResult.classList.remove("hidden")
+    }
+})
+</script>
 </body></html>

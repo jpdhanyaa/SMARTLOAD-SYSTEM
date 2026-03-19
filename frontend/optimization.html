@@ -77,13 +77,13 @@
         }
         body { font-family: 'Manrope', sans-serif; }
     </style>
+    <title> SmartLoad AI </title>
+    <link rel="icon" type="image/png" href="logo.png">    
 </head>
 <body class="bg-surface text-on-surface min-h-screen flex flex-col">
 <nav class="fixed top-0 w-full z-50 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md shadow-sm dark:shadow-none flex justify-between items-center px-6 py-3 w-full">
 <div class="text-xl font-bold tracking-tighter text-emerald-900 dark:text-emerald-50">SmartLoad AI</div>
 <div class="hidden md:flex items-center gap-8 font-manrope text-sm font-medium tracking-tight">
-<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-900 dark:hover:text-emerald-200 transition-colors duration-200" href="#">Projects</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-900 dark:hover:text-emerald-200 transition-colors duration-200" href="#">Documentation</a>
 </div>
 <div class="flex items-center gap-4">
 <button class="material-symbols-outlined text-emerald-900 dark:text-emerald-100 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 p-2 rounded-full transition-colors active:scale-95 duration-150" data-icon="notifications">notifications</button>
@@ -92,9 +92,16 @@
 <div class="bg-slate-100 dark:bg-slate-800 h-[1px] w-full absolute bottom-0 left-0"></div>
 </nav>
 <aside class="fixed left-0 top-0 h-full w-64 z-40 bg-slate-900 dark:bg-slate-950 flex flex-col h-full pt-20 pb-6 shadow-2xl shadow-emerald-900/20 hidden md:flex">
-<div class="px-6 mb-10">
-<div class="text-emerald-50 text-lg font-black">Global Logistics</div>
-<div class="text-slate-400 text-[10px] uppercase tracking-[0.2em] font-bold">Terminal A-12</div>
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<div>
+<h2 class="text-emerald-50 text-lg font-black leading-none">AI System</h2>
+<p class="text-slate-500 text-[10px] uppercase tracking-[0.2em] font-bold mt-1">Optimization Module</p>
+</div>
+</div>
 </div>
 <nav class="flex-1 space-y-1">
 <a class="text-slate-400 hover:text-emerald-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold hover:bg-slate-800 dark:hover:bg-slate-900 transition-all hover:translate-x-1 duration-200" href="home.html">
@@ -121,7 +128,7 @@
 <div class="max-w-6xl mx-auto px-8 py-10">
 <header class="mb-12">
 <h1 class="text-4xl font-extrabold tracking-tighter text-on-surface mb-2">Cargo Configuration</h1>
-<p class="text-on-surface-variant text-lg">Define parameters for high-precision algorithmic container loading.</p>
+<p class="text-on-surface-variant text-lg">Define parameters for intelligent container loading and space optimization using SmartLoad AI.</p>
 </header>
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
 <section class="lg:col-span-12">
@@ -266,10 +273,6 @@
                                 Est. processing time: <span class="text-white font-bold">~1.4 seconds</span>
 </div>
 </div>
-<div class="mt-6 p-6 bg-surface-container-low rounded-xl border-l-4 border-primary">
-<h4 class="text-xs font-black uppercase tracking-widest text-on-surface-variant mb-2">Next Task</h4>
-<p class="text-sm font-bold text-on-surface">Review generated 3D loading blueprint for Terminal B departure.</p>
-</div>
 </div>
 </section>
 </div>
@@ -277,11 +280,8 @@
 </main>
 <footer class="w-full py-4 mt-auto bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
 <div class="flex justify-between items-center px-8 max-w-7xl mx-auto font-manrope text-xs tracking-normal font-normal text-slate-500">
-<div>© 2024 SmartLoad AI. System Status: Operational</div>
-<div class="flex gap-6">
-<a class="text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300 underline underline-offset-4 transition-opacity duration-300" href="#">Privacy Policy</a>
-<a class="text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300 underline underline-offset-4 transition-opacity duration-300" href="#">Terms of Service</a>
-<a class="text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300 underline underline-offset-4 transition-opacity duration-300" href="#">API Status</a>
+<br><div>© 2026 SmartLoad AI System</div>
+<div class="flex gap-2">
 </div>
 </div>
 </footer>
