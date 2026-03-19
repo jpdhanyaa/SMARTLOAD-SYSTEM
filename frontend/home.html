@@ -145,9 +145,9 @@
      SmartLoad AI intelligently arranges items within available space using advanced optimization algorithms. It ensures efficient space utilization, balanced weight distribution, and safe placement of fragile goods—reducing cost and improving logistics efficiency in real time. 
 </p>
 <div class="flex flex-wrap gap-4">
-<button class="px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-md font-bold text-lg shadow-xl shadow-primary/30 active:scale-95 transition-all">
-                            Start Optimization
-                        </button>
+<button id="startBtn" class="px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-md font-bold text-lg shadow-xl shadow-primary/30 active:scale-95 transition-all">
+    Start Optimization
+</button>
 <button class="px-8 py-4 border-2 border-outline-variant text-primary rounded-md font-bold text-lg hover:bg-surface-container transition-all">
                             View System Details
                         </button>
@@ -252,17 +252,17 @@
 <div class="grid grid-cols-2 gap-4">
 <div class="bg-surface-container-lowest/10 p-6 rounded-xl aspect-square flex flex-col justify-center items-center text-center">
 <span class="material-symbols-outlined text-emerald-400 text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">package_2</span>
-<h4 class="text-white text-lg font-bold">120+</h4>
+<h4 id="totalItems" class="text-white text-lg font-bold">120+</h4>
 <p class="text-slate-400 text-xs uppercase tracking-widest mt-1">ITEMS OPTIMIZED</p>
 </div>
 <div class="bg-surface-container-lowest/10 p-6 rounded-xl aspect-square flex flex-col justify-center items-center text-center">
 <span class="material-symbols-outlined text-emerald-400 text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">map</span>
-<h4 class="text-white text-lg font-bold">14</h4>
+<h4 id="totalRuns" class="text-white text-lg font-bold">14</h4>
 <p class="text-slate-400 text-xs uppercase tracking-widest mt-1">OPTIMIZATION RUNS</p>
 </div>
 <div class="bg-surface-container-lowest/10 p-6 rounded-xl aspect-square flex flex-col justify-center items-center text-center">
 <span class="material-symbols-outlined text-emerald-400 text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">query_stats</span>
-<h4 class="text-white text-lg font-bold">92.7%</h4>
+<span id="heroUtilMain" class="text-white text-lg font-bold">92.7%</span>
 <p class="text-slate-400 text-xs uppercase tracking-widest mt-1">SPACE UTILIZATION</p>
 </div>
 <div class="bg-surface-container-lowest/10 p-6 rounded-xl aspect-square flex flex-col justify-center items-center text-center">
@@ -318,4 +318,49 @@
 <button class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-transform z-50">
 <span class="material-symbols-outlined">support_agent</span>
 </button>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const startBtn = document.getElementById("startBtn")
+
+    startBtn.addEventListener("click", function () {
+
+        const payload = {
+            items: [
+                { width: 2, height: 2, depth: 2 },
+                { width: 1, height: 2, depth: 1 },
+                { width: 3, height: 1, depth: 2 }
+            ]
+        }
+
+        fetch("http://localhost:3000/api/run-optimization", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(res => res.json())
+        .then(result => {
+            const data = result.data
+
+            console.log("Optimization Result:", data)
+
+            // 🔥 Update UI dynamically
+            document.getElementById("totalItems").innerText = data.totalItems + "+"
+            document.getElementById("totalRuns").innerText = data.totalRuns
+
+            const util = data.avgUtil + "%"
+
+            document.getElementById("heroUtilMain").innerText = util
+
+            // 🔥 ALSO update hero box (IMPORTANT)
+            const heroBox = document.querySelector(".text-2xl.font-black.text-primary")
+            if(heroBox){
+                heroBox.innerText = util
+            }
+        })
+    })
+})
+</script>
 </body></html>
