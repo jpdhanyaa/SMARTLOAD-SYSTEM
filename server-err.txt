@@ -1,0 +1,2 @@
+Database connection error: Access denied for user 'root'@'localhost' (using password: NO)
+GET /api/home-stats failed: Access denied for user 'root'@'localhost' (using password: NO)
