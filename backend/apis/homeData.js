@@ -16,4 +16,8 @@ router.get("/home-stats", (req, res) => {
     })
 })
 
+router.get("/test", (req, res) => {
+    res.send("Backend working")
+})
+
 module.exports = router

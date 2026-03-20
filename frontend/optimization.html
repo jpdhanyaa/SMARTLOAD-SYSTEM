@@ -137,41 +137,42 @@
 <h2 class="text-xl font-bold tracking-tight text-on-surface">Select Container</h2>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<div class="group relative bg-surface-container-lowest p-6 rounded-xl shadow-sm border-l-4 border-transparent hover:border-secondary transition-all cursor-pointer">
-<div class="flex justify-between items-start mb-4">
-<span class="material-symbols-outlined text-primary text-3xl" data-icon="conveyor_belt">conveyor_belt</span>
-<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] font-black px-2 py-1 rounded-full tracking-wider uppercase">Standard</span>
+<div id="container20" onclick="selectContainer('20ft',33)" class="group relative bg-surface-container-lowest p-6 rounded-xl shadow-sm border-l-4 border-transparent transition-all cursor-pointer">
+    <div class="flex justify-between items-start mb-4">
+        <span class="material-symbols-outlined text-primary text-3xl">conveyor_belt</span>
+        <span id="tick20" class="material-symbols-outlined text-green-500 hidden">check_circle</span>
+    </div>
+    <h3 class="text-lg font-bold text-on-surface mb-1">Standard 20ft</h3>
+        <p class="text-sm text-on-surface-variant mb-4">5.89m × 2.35m × 2.39m</p>
 </div>
-<h3 class="text-lg font-bold text-on-surface mb-1">Standard 20ft</h3>
-<p class="text-sm text-on-surface-variant mb-4">5.89m × 2.35m × 2.39m</p>
-<div class="text-xs font-bold text-primary flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                SELECT UNIT <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+
+<div id="container40" onclick="selectContainer('40ft',67)" class="group relative bg-surface-container-lowest p-6 rounded-xl shadow-sm border-l-4 border-transparent transition-all cursor-pointer">
+    <div class="flex justify-between items-start mb-4">
+        <span class="material-symbols-outlined text-primary text-3xl">package_2</span>
+        <span id="tick40" class="material-symbols-outlined text-green-500 hidden">check_circle</span>
+    </div>
+    <h3 class="text-lg font-bold text-on-surface mb-1">Standard 40ft</h3>
+    <p class="text-sm text-on-surface-variant mb-4">12.03m × 2.35m × 2.39m</p>
 </div>
+<div id="containerCustom" onclick="selectCustom()" 
+class="group relative bg-surface-container-lowest p-6 rounded-xl shadow-sm border-l-4 border-transparent transition-all cursor-pointer">
+
+    <div class="flex justify-between items-start mb-4">
+        <span class="material-symbols-outlined text-primary text-3xl">architecture</span>
+        <span id="tickCustom" class="material-symbols-outlined text-green-500 hidden">check_circle</span>
+    </div>
+
+    <h3 class="text-lg font-bold text-on-surface mb-1">Custom Dimensions</h3>
+
+    <p id="customDimsText" class="text-sm text-on-surface-variant mb-4">
+        Define unique volume specs
+    </p>
+
+    <input id="length" type="hidden">
+    <input id="width" type="hidden">
+    <input id="height" type="hidden">
+
 </div>
-<div class="group relative bg-surface-container-highest p-6 rounded-xl shadow-sm border-l-4 border-secondary transition-all cursor-pointer">
-<div class="flex justify-between items-start mb-4">
-<span class="material-symbols-outlined text-primary text-3xl" data-icon="package_2">package_2</span>
-<span class="bg-primary text-on-primary text-[10px] font-black px-2 py-1 rounded-full tracking-wider uppercase">Recommended</span>
-</div>
-<h3 class="text-lg font-bold text-on-surface mb-1">Standard 40ft</h3>
-<p class="text-sm text-on-surface-variant mb-4">12.03m × 2.35m × 2.39m</p>
-<div class="text-xs font-bold text-primary flex items-center gap-1">
-                                ACTIVE SELECTION <span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
-</div>
-</div>
-<div class="group relative bg-surface-container-lowest p-6 rounded-xl shadow-sm border-l-4 border-transparent hover:border-secondary transition-all cursor-pointer">
-<div class="flex justify-between items-start mb-4">
-<span class="material-symbols-outlined text-primary text-3xl" data-icon="architecture">architecture</span>
-<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-black px-2 py-1 rounded-full tracking-wider uppercase">Custom</span>
-</div>
-<h3 class="text-lg font-bold text-on-surface mb-1">Custom Dimensions</h3>
-<p class="text-sm text-on-surface-variant mb-4">Define unique volume specs</p>
-<div class="text-xs font-bold text-primary flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                CONFIGURE <span class="material-symbols-outlined text-sm" data-icon="settings_input_component">settings_input_component</span>
-</div>
-</div>
-</div>
-</section>
 <section class="lg:col-span-8">
 <div class="flex items-center justify-between mb-6">
 <div class="flex items-center gap-3">
@@ -190,87 +191,21 @@
 <th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Dims (L×W×H)</th>
 <th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Weight</th>
 <th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Fragile</th>
-<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Action</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Delete</th>
 </tr>
 </thead>
-<tbody class="divide-y divide-outline-variant/10">
-<tr class="hover:bg-surface-container-low transition-colors">
-<td class="px-6 py-4">
-<input class="bg-transparent border-0 font-bold text-sm focus:ring-0 w-full p-0" type="text" value="Industrial Motors XL"/>
-</td>
-<td class="px-6 py-4 text-sm font-mono">120 × 80 × 95 cm</td>
-<td class="px-6 py-4 text-sm">450 kg</td>
-<td class="px-6 py-4">
-<div class="w-10 h-5 bg-surface-container-high rounded-full relative cursor-pointer">
-<div class="absolute left-1 top-1 w-3 h-3 bg-white rounded-full transition-all"></div>
-</div>
-</td>
-<td class="px-6 py-4 text-right">
-<button class="material-symbols-outlined text-on-surface-variant hover:text-error transition-colors" data-icon="delete">delete</button>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-low transition-colors">
-<td class="px-6 py-4">
-<input class="bg-transparent border-0 font-bold text-sm focus:ring-0 w-full p-0" type="text" value="Control Panels P-9"/>
-</td>
-<td class="px-6 py-4 text-sm font-mono">60 × 60 × 120 cm</td>
-<td class="px-6 py-4 text-sm">125 kg</td>
-<td class="px-6 py-4">
-<div class="w-10 h-5 bg-secondary rounded-full relative cursor-pointer">
-<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full transition-all"></div>
-</div>
-</td>
-<td class="px-6 py-4 text-right">
-<button class="material-symbols-outlined text-on-surface-variant hover:text-error transition-colors" data-icon="delete">delete</button>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-low transition-colors">
-<td class="px-6 py-4">
-<input class="bg-transparent border-0 font-bold text-sm focus:ring-0 w-full p-0" type="text" value="Hydraulic Fluid Drums"/>
-</td>
-<td class="px-6 py-4 text-sm font-mono">80 × 80 × 110 cm</td>
-<td class="px-6 py-4 text-sm">210 kg</td>
-<td class="px-6 py-4">
-<div class="w-10 h-5 bg-surface-container-high rounded-full relative cursor-pointer">
-<div class="absolute left-1 top-1 w-3 h-3 bg-white rounded-full transition-all"></div>
-</div>
-</td>
-<td class="px-6 py-4 text-right">
-<button class="material-symbols-outlined text-on-surface-variant hover:text-error transition-colors" data-icon="delete">delete</button>
-</td>
-</tr>
-</tbody>
+<tbody id="itemsTable" class="divide-y divide-outline-variant/10"></tbody>
 </table>
 </div>
 </section>
 <section class="lg:col-span-4">
 <div class="sticky top-24">
-<div class="bg-inverse-surface text-white p-8 rounded-xl shadow-2xl relative overflow-hidden">
+<div>
 <div class="absolute -top-10 -right-10 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl"></div>
-<h2 class="text-xl font-bold mb-6 flex items-center gap-2">
-<span class="material-symbols-outlined text-emerald-400" data-icon="bolt">bolt</span>
-                                System Engine
-                            </h2>
-<div class="space-y-6 mb-8">
-<div class="flex justify-between items-center text-sm border-b border-white/10 pb-4">
-<span class="text-slate-400">Total Items</span>
-<span class="font-bold">42 Units</span>
-</div>
-<div class="flex justify-between items-center text-sm border-b border-white/10 pb-4">
-<span class="text-slate-400">Est. Volume Util.</span>
-<span class="font-bold text-emerald-400">89.4%</span>
-</div>
-<div class="flex justify-between items-center text-sm border-b border-white/10 pb-4">
-<span class="text-slate-400">Algorithm Path</span>
-<span class="font-bold">Sequential Fit</span>
-</div>
-</div>
-<button class="w-full py-5 bg-gradient-to-br from-primary to-primary-container text-white font-extrabold text-lg rounded-xl shadow-lg shadow-emerald-950/50 hover:scale-[1.02] active:scale-95 transition-all mb-4">
+<button id="optimizeBtn" class="w-full py-5 bg-gradient-to-br from-primary to-primary-container text-white font-extrabold text-lg rounded-xl shadow-lg shadow-emerald-950/50 hover:scale-[1.02] active:scale-95 transition-all mb-4">
                                 Optimize Now
                             </button>
 <div class="flex items-center justify-center gap-2 text-xs text-slate-400">
-<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span>
-                                Est. processing time: <span class="text-white font-bold">~1.4 seconds</span>
 </div>
 </div>
 </div>
@@ -285,4 +220,341 @@
 </div>
 </div>
 </footer>
+<script>
+document.querySelector("optimizeBtn").addEventListener("click", function(){
+
+    console.log(selectContainer)
+
+    const rows = document.querySelectorAll("tbody tr")
+    const items = []
+
+    for(let i=0; i<rows.length; i++){
+
+        const name = rows[i].querySelector("input").value
+
+        const dimsText = rows[i].children[1].innerText
+        const weightText = rows[i].children[2].innerText
+
+        const dims = dimsText.split("×")
+
+        const length = parseFloat(dims[0])
+        const width = parseFloat(dims[1])
+        const height = parseFloat(dims[2])
+
+        const weight = parseFloat(weightText)
+
+        items.push({
+            name,
+            length,
+            width,
+            height,
+            weight
+        })
+    }
+
+    fetch("http://localhost:3000/api/run-optimization", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            items: items,
+            containerVolume: 10000000
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        if(data.success){
+            document.querySelector(".text-emerald-400").innerText = data.data.utilization + "%"
+        }else{
+            alert("Error")
+        }
+
+    })
+
+})
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const btn = document.getElementById("optimizeBtn")
+
+    btn.addEventListener("click", async () => {
+
+        console.log("Button clicked")
+
+        const rows = document.querySelectorAll("tbody tr")
+        let items = []
+
+        rows.forEach(row => {
+            const name = row.querySelector("input").value
+
+            const dimsText = row.children[1].innerText
+            const weightText = row.children[2].innerText
+
+            const dims = dimsText.split("×").map(x => parseFloat(x))
+            const weight = parseFloat(weightText)
+
+            items.push({
+                name,
+                length: dims[0],
+                width: dims[1],
+                height: dims[2],
+                weight
+            })
+        })
+
+        console.log(items)
+
+        const response = await fetch("http://localhost:3000/api/run-optimization", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+             containerVolume: selectedContainer.volume * 1000000,
+             containerType: selectedContainer.id,
+             items: items
+            })
+        })
+
+        const result = await response.json()
+        console.log(result)
+
+        if(result.success){
+            alert("Optimization Completed ✅")
+            location.reload()
+        } else {
+            alert("Error ❌")
+        }
+    })
+
+})
+</script>
+<script>
+let items = []
+
+function renderTable() {
+    const table = document.getElementById("itemsTable")
+    table.innerHTML = ""
+
+    for(let i = 0; i < items.length; i++){
+
+        const item = items[i]
+
+        table.innerHTML += `
+        <tr class="hover:bg-surface-container-low transition-colors">
+            
+            <td class="px-6 py-4 font-bold text-sm">${item.name}</td>
+            
+            <td class="px-6 py-4 text-sm font-mono">
+                ${item.length} × ${item.width} × ${item.height}
+            </td>
+            
+            <td class="px-6 py-4 text-sm">
+                ${item.weight} kg
+            </td>
+
+            <td class="px-6 py-4">
+                <div onclick="toggleFragile(${i})"
+                     style="
+                        width:40px;height:20px;border-radius:20px;
+                        background:${item.fragile ? '#4b41e1' : '#e5e7eb'};
+                        position:relative;cursor:pointer;
+                     ">
+                     
+                    <div style="
+                        width:14px;height:14px;background:white;border-radius:50%;
+                        position:absolute;top:3px;
+                        left:${item.fragile ? '22px' : '3px'};
+                        transition:0.2s;
+                    "></div>
+                </div>
+            </td>
+
+            <td class="px-6 py-4 text-right">
+                <button onclick="deleteItem(${i})"
+                    class="material-symbols-outlined text-on-surface-variant hover:text-error">
+                    delete
+                </button>
+            </td>
+
+        </tr>
+        `
+    }
+}
+
+function toggleFragile(index){
+    items[index].fragile = !items[index].fragile
+    renderTable()
+}
+
+function deleteItem(index){
+    items.splice(index, 1)
+    renderTable()
+}
+
+document.querySelector("[data-icon='add']").parentElement.addEventListener("click", () => {
+
+    const name = prompt("Item name:")
+    const length = parseFloat(prompt("Length"))
+    const width = parseFloat(prompt("Width"))
+    const height = parseFloat(prompt("Height"))
+    const weight = parseFloat(prompt("Weight"))
+
+    if(!name || !length || !width || !height || !weight){
+        alert("Invalid input")
+        return
+    }
+
+    items.push({
+        name,
+        length,
+        width,
+        height,
+        weight,
+        fragile:false
+    })
+
+    renderTable()
+})
+
+document.getElementById("optimizeBtn").addEventListener("click", async () => {
+
+    if(items.length === 0){
+        alert("Add items first")
+        return
+    }
+
+    const response = await fetch("http://localhost:3000/api/run-optimization", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            containerVolume: 1000000,
+            items: items
+        })
+    })
+
+    const result = await response.json()
+
+    if(result.success){
+        alert("Optimization Completed ✅")
+    }else{
+        alert("Error ❌")
+    }
+})
+
+renderTable()
+</script>
+<script>
+let selectedContainer = null
+let containerVolume = 1000000
+
+function resetSelection() {
+    const containers = ["container20", "container40", "containerCustom"]
+
+    containers.forEach(id => {
+        document.getElementById(id).classList.remove("border-secondary","border-l-4","bg-blue-100")
+        document.getElementById(id).classList.add("border-transparent")
+    })
+
+    document.getElementById("tick20").classList.add("hidden")
+    document.getElementById("tick40").classList.add("hidden")
+    document.getElementById("tickCustom").classList.add("hidden")
+}
+
+function selectContainer(type, volume){
+
+    selectedContainer = type
+    containerVolume = volume
+
+    console.log("Selected:", type, volume)
+
+    document.querySelectorAll("[id^='container']").forEach(c => {
+        c.classList.remove("border-secondary", "bg-surface-container-highest")
+    })
+
+    document.querySelectorAll("[id^='tick']").forEach(t => t.classList.add("hidden"))
+
+    if(type === "20ft"){
+        document.getElementById("container20").classList.add("border-secondary","bg-surface-container-highest")
+        document.getElementById("tick20").classList.remove("hidden")
+    }
+
+    if(type === "40ft"){
+        document.getElementById("container40").classList.add("border-secondary","bg-surface-container-highest")
+        document.getElementById("tick40").classList.remove("hidden")
+    }
+
+    if(type === "custom"){
+        document.getElementById("containerCustom").classList.add("border-secondary","bg-surface-container-highest")
+        document.getElementById("tickCustom").classList.remove("hidden")
+    }
+}function selectCustom(){
+    const l = parseFloat(prompt("Enter Length (m)"))
+    const w = parseFloat(prompt("Enter Width (m)"))
+    const h = parseFloat(prompt("Enter Height (m)"))
+
+    if(isNaN(l) || isNaN(w) || isNaN(h)){
+        alert("Invalid input")
+        return
+    }
+
+    selectedContainer = { id:"custom", volume:l*w*h }
+
+    resetSelection()
+
+    const el = document.getElementById("containerCustom")
+    el.classList.remove("border-transparent")
+    el.classList.add("border-secondary","border-l-4")
+
+    document.getElementById("tickCustom").classList.remove("hidden")
+
+    document.getElementById("customDimsText").innerText = `${l}m × ${w}m × ${h}m`
+}
+
+document.getElementById("optimizeBtn").addEventListener("click", async () => {
+
+    if(!selectedContainer){
+        alert("Select container first ❗")
+        return
+    }
+
+    const response = await fetch("http://localhost:3000/api/run-optimization", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            containerType: selectedContainer,
+            containerVolume: containerVolume,
+            items: items
+        })
+    })
+
+    const result = await response.json()
+    console.log(result)
+
+    if(result.success){
+        alert("Optimization Completed ✅")
+        window.location.href = "result.html"
+    } else {
+        alert("Error ❌")
+    }
+})
+</script>
+<script>
+function updateCustomLive() {
+    let l = document.getElementById("length").value;
+    let w = document.getElementById("width").value;
+    let h = document.getElementById("height").value;
+
+    if (l && w && h) {
+        document.getElementById("customDimsText").innerText = `${l}m × ${w}m × ${h}m`;
+    }
+}
+</script>
 </body></html>
