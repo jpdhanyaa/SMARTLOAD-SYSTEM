@@ -145,7 +145,6 @@
     <h3 class="text-lg font-bold text-on-surface mb-1">Standard 20ft</h3>
         <p class="text-sm text-on-surface-variant mb-4">5.89m × 2.35m × 2.39m</p>
 </div>
-
 <div id="container40" onclick="selectContainer('40ft',67)" class="group relative bg-surface-container-lowest p-6 rounded-xl shadow-sm border-l-4 border-transparent transition-all cursor-pointer">
     <div class="flex justify-between items-start mb-4">
         <span class="material-symbols-outlined text-primary text-3xl">package_2</span>
@@ -156,22 +155,17 @@
 </div>
 <div id="containerCustom" onclick="selectCustom()" 
 class="group relative bg-surface-container-lowest p-6 rounded-xl shadow-sm border-l-4 border-transparent transition-all cursor-pointer">
-
     <div class="flex justify-between items-start mb-4">
         <span class="material-symbols-outlined text-primary text-3xl">architecture</span>
         <span id="tickCustom" class="material-symbols-outlined text-green-500 hidden">check_circle</span>
     </div>
-
     <h3 class="text-lg font-bold text-on-surface mb-1">Custom Dimensions</h3>
-
     <p id="customDimsText" class="text-sm text-on-surface-variant mb-4">
         Define unique volume specs
     </p>
-
     <input id="length" type="hidden">
     <input id="width" type="hidden">
     <input id="height" type="hidden">
-
 </div>
 <section class="lg:col-span-8">
 <div class="flex items-center justify-between mb-6">
@@ -191,7 +185,7 @@ class="group relative bg-surface-container-lowest p-6 rounded-xl shadow-sm borde
 <th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Dims (L×W×H)</th>
 <th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Weight</th>
 <th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Fragile</th>
-<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Delete</th>
+<th class="px-6 py-4 text-center text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Delete</th>
 </tr>
 </thead>
 <tbody id="itemsTable" class="divide-y divide-outline-variant/10"></tbody>
@@ -277,13 +271,9 @@ document.querySelector("optimizeBtn").addEventListener("click", function(){
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-
     const btn = document.getElementById("optimizeBtn")
-
     btn.addEventListener("click", async () => {
-
         console.log("Button clicked")
-
         const rows = document.querySelectorAll("tbody tr")
         let items = []
 
@@ -304,7 +294,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 weight
             })
         })
-
         console.log(items)
 
         const response = await fetch("http://localhost:3000/api/run-optimization", {
@@ -318,7 +307,6 @@ document.addEventListener("DOMContentLoaded", () => {
              items: items
             })
         })
-
         const result = await response.json()
         console.log(result)
 
@@ -329,7 +317,6 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Error ❌")
         }
     })
-
 })
 </script>
 <script>
@@ -446,7 +433,6 @@ document.getElementById("optimizeBtn").addEventListener("click", async () => {
         alert("Error ❌")
     }
 })
-
 renderTable()
 </script>
 <script>
@@ -493,7 +479,9 @@ function selectContainer(type, volume){
         document.getElementById("containerCustom").classList.add("border-secondary","bg-surface-container-highest")
         document.getElementById("tickCustom").classList.remove("hidden")
     }
-}function selectCustom(){
+}
+function selectCustom(){
+
     const l = parseFloat(prompt("Enter Length (m)"))
     const w = parseFloat(prompt("Enter Width (m)"))
     const h = parseFloat(prompt("Enter Height (m)"))
@@ -503,13 +491,21 @@ function selectContainer(type, volume){
         return
     }
 
-    selectedContainer = { id:"custom", volume:l*w*h }
+    selectedContainer = "custom"
+    containerVolume = l * w * h
 
-    resetSelection()
+    console.log("Selected: custom", containerVolume)
+
+    document.querySelectorAll("[id^='container']").forEach(c => {
+        c.classList.remove("border-secondary","bg-surface-container-highest")
+        c.classList.add("border-transparent")
+    })
+
+    document.querySelectorAll("[id^='tick']").forEach(t => t.classList.add("hidden"))
 
     const el = document.getElementById("containerCustom")
     el.classList.remove("border-transparent")
-    el.classList.add("border-secondary","border-l-4")
+    el.classList.add("border-secondary","bg-surface-container-highest")
 
     document.getElementById("tickCustom").classList.remove("hidden")
 
