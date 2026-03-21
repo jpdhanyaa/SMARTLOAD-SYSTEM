@@ -3,10 +3,10 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SmartLoad AI | Optimization Results</title>
+<title>SmartLoad AI</title>
+<link rel="icon" type="image/png" href="logo.png">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
@@ -77,6 +77,21 @@
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
         body { font-family: 'Manrope', sans-serif; }
+        .perspective-container {
+            perspective: 1200px;
+        }
+        .cargo-container {
+            transform-style: preserve-3d;
+            transform: rotateX(25deg) rotateY(-35deg);
+        }
+        .cube {
+            position: absolute;
+            transform-style: preserve-3d;
+        }
+        .face {
+            position: absolute;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
     </style>
 </head>
 <body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
@@ -84,8 +99,6 @@
 <div class="flex items-center gap-8">
 <span class="text-xl font-bold tracking-tighter text-emerald-900 dark:text-emerald-50">SmartLoad AI</span>
 <div class="hidden md:flex gap-6 items-center">
-<a class="font-manrope text-sm font-medium tracking-tight text-slate-600 dark:text-slate-400 hover:text-emerald-900 dark:hover:text-emerald-200 transition-colors duration-200" href="#">Projects</a>
-<a class="font-manrope text-sm font-medium tracking-tight text-slate-600 dark:text-slate-400 hover:text-emerald-900 dark:hover:text-emerald-200 transition-colors duration-200" href="#">Documentation</a>
 </div>
 </div>
 <div class="flex items-center gap-4">
@@ -98,35 +111,32 @@
 </div>
 <div class="bg-slate-100 dark:bg-slate-800 h-[1px] w-full absolute bottom-0 left-0"></div>
 </nav>
-<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-slate-900 dark:bg-slate-950 shadow-2xl shadow-emerald-900/20 flex flex-col h-full pt-20 pb-6 hidden lg:flex">
+<aside class="hidden lg:flex fixed left-0 top-0 h-full w-64 z-40 bg-slate-900 dark:bg-slate-950 flex-col h-full pt-20 pb-6 shadow-2xl shadow-emerald-900/20">
 <div class="px-6 mb-8">
-<div class="flex items-center gap-3 mb-1">
-<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white">
-<span class="material-symbols-outlined text-sm" data-icon="local_shipping">local_shipping</span>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">terminal</span>
 </div>
-<span class="text-emerald-50 text-lg font-black uppercase">Global Logistics</span>
+<div>
+<h2 class="text-emerald-50 text-lg font-black leading-none">AI System</h2>
+<p class="text-slate-500 text-[10px] uppercase tracking-[0.2em] font-bold mt-1">Optimization Module</p>
 </div>
-<p class="text-slate-400 text-[10px] tracking-[0.2em] font-bold uppercase">Terminal A-12</p>
+</div>
 </div>
 <nav class="flex-1 space-y-1 px-2">
-<a class="text-slate-400 hover:text-emerald-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold hover:bg-slate-800 transition-all hover:translate-x-1 duration-200" href="#">
+<a class="text-slate-400 hover:text-emerald-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold hover:bg-slate-800 transition-all hover:translate-x-1 duration-200" href="home.html">
 <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Home
             </a>
-<a class="bg-emerald-800/40 text-emerald-400 border-l-4 border-emerald-500 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold" href="#">
+<a class="bg-emerald-800/40 text-emerald-400 border-l-4 border-emerald-500 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold" href="optimization.html">
 <span class="material-symbols-outlined" data-icon="add_chart">add_chart</span> New Optimization
             </a>
-<a class="text-slate-400 hover:text-emerald-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold hover:bg-slate-800 transition-all hover:translate-x-1 duration-200" href="#">
+<a class="text-slate-400 hover:text-emerald-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold hover:bg-slate-800 transition-all hover:translate-x-1 duration-200" href="history.html">
 <span class="material-symbols-outlined" data-icon="history">history</span> History
             </a>
-<a class="text-slate-400 hover:text-emerald-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold hover:bg-slate-800 transition-all hover:translate-x-1 duration-200" href="#">
+<a class="text-slate-400 hover:text-emerald-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold hover:bg-slate-800 transition-all hover:translate-x-1 duration-200" href="settings.html">
 <span class="material-symbols-outlined" data-icon="settings">settings</span> Settings
             </a>
 </nav>
-<div class="px-4 mt-auto">
-<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-4 rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform shadow-lg shadow-emerald-900/40">
-<span class="material-symbols-outlined" data-icon="add">add</span> New Shipment
-            </button>
-</div>
 </aside>
 <main class="lg:pl-64 pt-20 min-h-screen flex flex-col">
 <div class="p-6 md:p-8 max-w-7xl mx-auto w-full space-y-8">
@@ -149,44 +159,63 @@
 <section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm ring-1 ring-outline-variant/10">
 <div class="flex justify-between items-center mb-6">
 <h2 class="text-lg font-bold text-on-surface flex items-center gap-2">
-<span class="material-symbols-outlined text-primary" data-icon="grid_view">grid_view</span>
-                                2D Load Visualization
+<span class="material-symbols-outlined text-primary" data-icon="3d_rotation">3d_rotation</span>
+                                3D High-Fidelity Load View
                             </h2>
 <div class="flex gap-4">
 <div class="flex items-center gap-2">
-<div class="w-3 h-3 rounded-sm bg-primary-container"></div>
+<div class="w-3 h-3 rounded-sm bg-[#059669]"></div>
 <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Standard</span>
 </div>
 <div class="flex items-center gap-2">
-<div class="w-3 h-3 rounded-sm bg-secondary-fixed shadow-[0_0_8px_rgba(75,65,225,0.3)]"></div>
+<div class="w-3 h-3 rounded-sm bg-red-400"></div>
 <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Fragile</span>
 </div>
 </div>
 </div>
-<div class="aspect-[16/9] w-full bg-surface-container-low rounded-xl relative p-4 overflow-hidden border border-outline-variant/20">
-<div class="absolute inset-4 border-2 border-dashed border-outline-variant/30 rounded-lg pointer-events-none"></div>
-<div class="relative w-full h-full grid grid-cols-12 grid-rows-6 gap-1">
-<div class="col-span-3 row-span-2 bg-primary-container rounded-sm border border-primary/20 flex items-center justify-center">
-<span class="text-[10px] text-white font-bold">P-101</span>
+<div class="aspect-[16/9] w-full bg-slate-900 rounded-xl relative overflow-hidden flex items-center justify-center perspective-container border border-slate-800">
+<div class="absolute top-4 right-4 flex flex-col gap-2 z-10">
+<button class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="zoom_in">zoom_in</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="zoom_out">zoom_out</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="pan_tool">pan_tool</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="restart_alt">restart_alt</span>
+</button>
 </div>
-<div class="col-span-2 row-span-2 bg-primary-container rounded-sm border border-primary/20 flex items-center justify-center opacity-80">
-<span class="text-[10px] text-white font-bold">P-102</span>
+<div class="cargo-container relative w-96 h-48 border-[1px] border-emerald-500/30">
+<div class="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.05)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+<div class="absolute bottom-0 left-0 w-full h-48 border-l border-r border-t border-emerald-500/10 origin-bottom transform translateZ(-100px)"></div>
+<div class="cube" style="width: 60px; height: 70px; left: 20px; bottom: 0; transform: translateZ(-20px);">
+<div class="face w-full h-full bg-[#059669]/60 border-emerald-400/50" style="transform: rotateY(0deg) translateZ(30px);"></div>
+<div class="face w-full h-full bg-[#059669]/40 border-emerald-400/50" style="transform: rotateY(180deg) translateZ(30px);"></div>
+<div class="face w-[60px] h-[60px] bg-[#059669]/50 border-emerald-400/50" style="transform: rotateX(90deg) translateZ(35px);"></div>
 </div>
-<div class="col-span-4 row-span-3 bg-secondary-fixed rounded-sm border border-secondary/30 flex flex-col items-center justify-center shadow-inner">
-<span class="material-symbols-outlined text-secondary text-sm" data-icon="eco">eco</span>
-<span class="text-[10px] text-secondary font-bold">F-99</span>
+<div class="cube" style="width: 100px; height: 90px; left: 100px; bottom: 0; transform: translateZ(-40px);">
+<div class="face w-full h-full bg-red-500/30 border-red-400/50 backdrop-blur-[1px]" style="transform: rotateY(0deg) translateZ(50px);"></div>
+<div class="face w-[80px] h-[100px] bg-red-500/20 border-red-400/50" style="transform: rotateX(90deg) translateZ(45px);"></div>
+<div class="face h-full w-[80px] bg-red-500/25 border-red-400/50" style="transform: rotateY(90deg) translateZ(50px);"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-red-200 text-lg opacity-40" data-icon="eco">eco</span>
 </div>
-<div class="col-span-3 row-span-4 bg-primary-container rounded-sm border border-primary/20 flex items-center justify-center">
-<span class="text-[10px] text-white font-bold">P-103</span>
 </div>
-<div class="col-span-5 row-span-3 bg-primary-container rounded-sm border border-primary/20 flex items-center justify-center">
-<span class="text-[10px] text-white font-bold">P-104 (HEAVY)</span>
+<div class="cube" style="width: 120px; height: 100px; left: 220px; bottom: 0; transform: translateZ(-10px);">
+<div class="face w-full h-full bg-[#059669]/70 border-emerald-400/50" style="transform: rotateY(0deg) translateZ(60px);"></div>
+<div class="face w-[120px] h-[120px] bg-[#059669]/50 border-emerald-400/50" style="transform: rotateX(90deg) translateZ(50px);"></div>
 </div>
-<div class="col-span-2 row-span-2 bg-secondary-fixed rounded-sm border border-secondary/30 flex items-center justify-center">
-<span class="text-[10px] text-secondary font-bold">F-100</span>
+<div class="cube" style="width: 50px; height: 40px; left: 25px; bottom: 70px; transform: translateZ(-20px);">
+<div class="face w-full h-full bg-[#059669]/80 border-emerald-400/50" style="transform: rotateY(0deg) translateZ(25px);"></div>
+<div class="face w-[50px] h-[50px] bg-[#059669]/60 border-emerald-400/50" style="transform: rotateX(90deg) translateZ(20px);"></div>
 </div>
-<div class="col-span-2 row-span-1 bg-surface-container-high rounded-sm opacity-40"></div>
-<div class="col-span-12 h-4"></div>
+</div>
+<div class="absolute bottom-6 left-6 text-white/40 text-[10px] uppercase font-bold tracking-widest flex items-center gap-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs" data-icon="info">info</span> Drag to rotate</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs" data-icon="info">info</span> Scroll to zoom</span>
 </div>
 </div>
 </section>
@@ -213,25 +242,25 @@
 <div class="relative flex flex-col items-center justify-center py-4">
 <svg class="w-48 h-48 transform -rotate-90">
 <circle class="text-slate-800" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="12"></circle>
-<circle class="text-emerald-500" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-dasharray="552.92" stroke-dashoffset="99.52" stroke-linecap="round" stroke-width="12"></circle>
+<circle id="progressCircle" class="text-emerald-500" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-dasharray="552.92" stroke-dashoffset="552.92" stroke-linecap="round" stroke-width="12"></circle>
 </svg>
 <div class="absolute inset-0 flex flex-col items-center justify-center">
-<span class="text-5xl font-black tracking-tighter">82%</span>
+<span id="resUtil" class="text-5xl font-black tracking-tighter">0 %</span>
 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Optimized</span>
 </div>
 </div>
 <div class="mt-8 space-y-4">
 <div class="flex justify-between items-center text-sm border-b border-slate-700 pb-3">
 <span class="text-slate-400">Total Volume</span>
-<span class="font-bold">64.2 m³</span>
+<span id="resVolume" class="font-bold">0 cm³</span>
 </div>
 <div class="flex justify-between items-center text-sm border-b border-slate-700 pb-3">
 <span class="text-slate-400">Net Payload</span>
-<span class="font-bold">18,400 kg</span>
+<span id="resWeight" class="font-bold">0 kg</span>
 </div>
 <div class="flex justify-between items-center text-sm">
 <span class="text-slate-400">Empty Space</span>
-<span class="font-bold text-emerald-400">11.8 m³</span>
+<span id="resEmpty" class="font-bold text-emerald-400">0</span>
 </div>
 </div>
 </section>
@@ -240,11 +269,11 @@
 <div class="grid grid-cols-2 gap-4">
 <div class="bg-white/50 p-4 rounded-lg">
 <p class="text-[10px] font-bold text-slate-500 uppercase">Items</p>
-<p class="text-xl font-black text-on-surface">142</p>
+<p id="resItems" class="text-xl font-black text-on-surface">0</p>
 </div>
 <div class="bg-white/50 p-4 rounded-lg">
 <p class="text-[10px] font-bold text-slate-500 uppercase">Load Time</p>
-<p class="text-xl font-black text-on-surface">45m</p>
+<p id="resTime" class="text-xl font-black text-on-surface">0m</p>
 </div>
 </div>
 </section>
@@ -270,7 +299,7 @@
 <th class="px-6 py-4 text-right">Status</th>
 </tr>
 </thead>
-<tbody class="divide-y divide-surface-container">
+<tbody id="resultTable" class="divide-y divide-surface-container"></tbody>
 <tr class="hover:bg-surface-container-low transition-colors group">
 <td class="px-6 py-4 font-bold text-primary">P-101</td>
 <td class="px-6 py-4 text-sm">Standard Pallet</td>
@@ -311,11 +340,8 @@
 </div>
 <footer class="w-full py-4 mt-auto border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
 <div class="flex justify-between items-center px-8 max-w-7xl mx-auto">
-<p class="font-manrope text-xs tracking-normal font-normal text-slate-500">© 2024 SmartLoad AI. System Status: Operational</p>
+<p class="font-manrope text-xs tracking-normal font-normal text-slate-500">© 2026 SmartLoad AI</p>
 <div class="flex gap-6">
-<a class="font-manrope text-xs text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300 underline underline-offset-4 transition-opacity duration-300" href="#">Privacy Policy</a>
-<a class="font-manrope text-xs text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300 underline underline-offset-4 transition-opacity duration-300" href="#">Terms of Service</a>
-<a class="font-manrope text-xs text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300 underline underline-offset-4 transition-opacity duration-300" href="#">API Status</a>
 </div>
 </div>
 </footer>
@@ -326,4 +352,155 @@
             Re-Optimize Load
         </button>
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+
+    const res = await fetch("http://localhost:3000/api/optimizations")
+    const result = await res.json()
+
+    if(!result.success || result.data.length === 0){
+        alert("No data found")
+        return
+    }
+
+    const data = result.data[0]
+
+    const util = parseFloat(data.utilization)
+    const totalItems = data.total_items
+    const totalWeight = data.total_weight
+
+    document.getElementById("resUtil").innerText = util + "%"
+    document.getElementById("resItems").innerText = totalItems
+    document.getElementById("resWeight").innerText = totalWeight + " kg"
+
+    const totalVolume = 67
+    const used = (util / 100) * totalVolume
+    const empty = totalVolume - used
+
+    document.getElementById("resVolume").innerText = totalVolume.toFixed(1) + " m³"
+    document.getElementById("resEmpty").innerText = empty.toFixed(1) + " m³"
+
+    document.getElementById("resTime").innerText = "1.4s"
+
+    const circle = document.getElementById("progressCircle")
+    const circumference = 552.92
+    const offset = circumference - (util / 100) * circumference
+    circle.style.strokeDashoffset = offset
+
+})
+</script>
+<script>
+function renderTable(){
+
+    const table = document.getElementById("resultTable")
+
+    fetch("http://localhost:3000/api/optimizations")
+    .then(res => res.json())
+    .then(result => {
+
+        const data = result.data[0]
+
+        table.innerHTML = ""
+
+        for(let i=0; i<data.total_items; i++){
+
+            table.innerHTML += `
+            <tr class="hover:bg-surface-container-low">
+                <td class="px-6 py-4 font-bold text-primary">Item-${i+1}</td>
+                <td class="px-6 py-4 text-sm">Standard</td>
+                <td class="px-6 py-4 text-sm text-slate-500">--</td>
+                <td class="px-6 py-4 text-sm">-- kg</td>
+                <td class="px-6 py-4 text-sm font-mono">--</td>
+                <td class="px-6 py-4 text-right">
+                    <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded-full uppercase">
+                        Loaded
+                    </span>
+                </td>
+            </tr>
+            `
+        }
+
+    })
+}
+renderTable()
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+
+    const res = await fetch("http://localhost:3000/api/full-result")
+    const result = await res.json()
+
+    if(!result.success){
+        console.log("No data yet")
+        return
+    }
+
+    const run = result.run
+    const items = result.items
+
+    const util = parseFloat(run.utilization)
+
+    document.getElementById("resUtil").innerText = util + "%"
+    document.getElementById("resItems").innerText = run.total_items
+    document.getElementById("resWeight").innerText = run.total_weight + " kg"
+
+    const totalVolume = 67
+    const used = (util / 100) * totalVolume
+    const empty = totalVolume - used
+
+    document.getElementById("resVolume").innerText = totalVolume.toFixed(1) + " m³"
+    document.getElementById("resEmpty").innerText = empty.toFixed(1) + " m³"
+    document.getElementById("resTime").innerText = "1.4s"
+
+    const circle = document.getElementById("progressCircle")
+    const circumference = 552.92
+    const offset = circumference - (util / 100) * circumference
+    circle.style.strokeDashoffset = offset
+
+    const table = document.getElementById("resultTable")
+    table.innerHTML = ""
+
+    for(let i=0;i<items.length;i++){
+
+        const item = items[i]
+
+        table.innerHTML += `
+        <tr class="hover:bg-surface-container-low">
+            <td class="px-6 py-4 font-bold text-primary">${item.name}</td>
+            <td class="px-6 py-4 text-sm">${item.fragile ? "Fragile" : "Standard"}</td>
+            <td class="px-6 py-4 text-sm text-slate-500">${item.length} x ${item.width} x ${item.height}</td>
+            <td class="px-6 py-4 text-sm">${item.weight} kg</td>
+            <td class="px-6 py-4 text-sm font-mono">--</td>
+            <td class="px-6 py-4 text-right">
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded-full uppercase">
+                    Loaded
+                </span>
+            </td>
+        </tr>
+        `
+    }
+
+})
+</script>
+<script>
+async function loadResult(){
+
+    const res = await fetch("http://localhost:3000/api/latest-result")
+    const result = await res.json()
+
+    if(!result.success){
+        console.log("No data yet")
+        return
+    }
+
+    const data = result.data
+
+    document.getElementById("totalItems").innerText = data.total_items
+    document.getElementById("totalWeight").innerText = data.total_weight + " kg"
+    document.getElementById("utilization").innerText = data.utilization + "%"
+
+}
+
+loadResult()
+</script>
 </body></html>

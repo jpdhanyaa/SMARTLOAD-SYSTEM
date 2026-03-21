@@ -252,8 +252,9 @@ document.querySelector("optimizeBtn").addEventListener("click", function(){
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            items: items,
-            containerVolume: 10000000
+        containerType: selectedContainer,
+        containerVolume: containerVolume,
+        items: items
         })
     })
     .then(res => res.json())
@@ -311,8 +312,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(result)
 
         if(result.success){
-            alert("Optimization Completed ✅")
-            location.reload()
+            window.location.href = "result.html"
         } else {
             alert("Error ❌")
         }
@@ -429,6 +429,7 @@ document.getElementById("optimizeBtn").addEventListener("click", async () => {
 
     if(result.success){
         alert("Optimization Completed ✅")
+        window.location.href = "result.html"
     }else{
         alert("Error ❌")
     }

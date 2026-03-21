@@ -72,6 +72,25 @@ app.post("/api/run-optimization", (req, res) => {
     )
 })
 
+app.get("/api/latest-result", (req, res) => {
+
+    db.query(
+        "SELECT * FROM optimization_runs ORDER BY id DESC LIMIT 1",
+        (err, result) => {
+
+            if (err || result.length === 0) {
+                return res.json({ success: false })
+            }
+
+            res.json({
+                success: true,
+                data: result[0]
+            })
+        }
+    )
+
+})
+
 app.use("/api", homeData)
 
 const frontendDir = path.join(__dirname, "..", "frontend")
