@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3D Container</title>
+</head>
+<body>
+    <div id="threeContainer" style="width:100vw; height:100vh;"></div>
+
+    <script>
+localStorage.setItem('container', JSON.stringify({
+    length: 1200,
+    width: 235,
+    height: 239
+}))
+
+localStorage.setItem('items', JSON.stringify([
+    { length: 200, width: 100, height: 100 },
+    { length: 150, width: 80, height: 120 },
+    { length: 100, width: 60, height: 60 },
+    { length: 250, width: 120, height: 140 }
+]))
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+const container = {
+    length: 1200,
+    width: 235,
+    height: 239
+}
+
+const items= [
+    { length: 200, width: 100, height: 100 },
+    { length: 150, width: 80, height: 120 },
+    { length: 100, width: 60, height: 60 },
+    { length: 250, width: 120, height: 140 }
+]
+
+const scale = 0.01
+
+const containerDiv = document.getElementById("threeContainer")
+
+const scene = new THREE.Scene()
+scene.background = new THREE.Color(0x111111)
+
+const camera = new THREE.PerspectiveCamera(
+    75,
+    containerDiv.clientWidth / containerDiv.clientHeight
+)
+
+camera.position.set(0, 8, 20)
+
+const renderer = new THREE.WebGLRenderer({ antialias: true })
+
+renderer.setSize(containerDiv.clientWidth, containerDiv.clientHeight)
+containerDiv.appendChild(renderer.domElement)
+
+window.addEventListener("resize", () => {
+    renderer.setSize(containerDiv.clientWidth, containerDiv.clientHeight)
+    camera.aspect = containerDiv.clientWidth / containerDiv.clientHeight
+    camera.updateProjectionMatrix()
+})
+
+const controls = new THREE.OrbitControls(camera, renderer.domElement)
+
+controls.enableDamping = true
+controls.dampingFactor = 0.05
+
+const light1 = new THREE.AmbientLight(0xffffff, 0.5)
+scene.add(light1)
+
+const light2 = new THREE.DirectionalLight(0xffffff, 1)
+light2.position.set(10, 20, 10)
+scene.add(light2)
+
+const geometry = new THREE.BoxGeometry(
+    container.length * scale,
+    container.height * scale,
+    container.width * scale
+)
+
+const material = new THREE.MeshPhongMaterial({
+    color: 0x1e90ff,
+    transparent: true,
+    opacity: 0.15,
+    side: THREE.DoubleSide
+})
+
+const containerMesh = new THREE.Mesh(geometry, material)
+scene.add(containerMesh)
+const floorGeo = new THREE.PlaneGeometry(
+    container.length * scale * 2,
+    container.width * scale * 2
+)
+const floorMat = new THREE.MeshPhongMaterial({ color: 0x444444 })
+const floor = new THREE.Mesh(floorGeo, floorMat)
+
+floor.rotation.x = -Math.PI / 2
+floor.position.y = - (container.height * scale) / 2
+
+scene.add(floor)
+
+
+ let x = - (container.length * scale) / 2
+ let y = - (container.height * scale) / 2
+ let z = - (container.width * scale) / 2
+ let rowDepth = 0
+ let layerHeight = 0
+
+for(let i = 0; i < items.length; i++){
+
+    const item = items[i]
+
+    const w = item.length * scale
+    const h = item.height * scale
+    const d = item.width * scale
+
+    if(x + w > (container.length * scale) / 2){
+        x = - (container.length * scale) / 2
+        z += rowDepth
+        rowDepth = 0
+    }
+
+    if(z + d > (container.width * scale) / 2){
+        z = - (container.width * scale) / 2
+        y += layerHeight
+        layerHeight = 0
+    }
+
+    if(y + h > (container.height * scale) / 2){
+        break
+    }
+
+    const geo = new THREE.BoxGeometry(w, h, d)
+
+    const mat = new THREE.MeshPhongMaterial({
+        color: Math.random() * 0xffffff
+    })
+
+    const box = new THREE.Mesh(geo, mat)
+
+    box.position.set(
+        x + w/2,
+        y + h/2,
+        z + d/2
+    )
+
+    scene.add(box)
+
+    const edges = new THREE.EdgesGeometry(geo)
+    const line = new THREE.LineSegments(
+    edges,
+    new THREE.LineBasicMaterial({ color: 0x222222 })
+    )
+    box.add(line)
+
+    x += w
+
+    if(d > rowDepth) rowDepth = d
+    if(h > layerHeight) layerHeight = h
+}
+
+const containerEdges = new THREE.EdgesGeometry(geometry)
+const containerLine = new THREE.LineSegments(
+    containerEdges,
+    new THREE.LineBasicMaterial({ color: 0xffffff })
+)
+
+scene.add(containerLine)
+
+function animate(){
+    requestAnimationFrame(animate)
+    controls.update()
+    renderer.render(scene, camera)
+}
+
+animate()
+})
+</script>
+</body>
+</html>
