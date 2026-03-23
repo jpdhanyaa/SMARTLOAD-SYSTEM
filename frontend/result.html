@@ -92,6 +92,9 @@
             position: absolute;
             border: 1px solid rgba(255,255,255,0.2);
         }
+        #progressCircle {
+           transition: stroke-dashoffset 1s ease;
+        }
     </style>
 </head>
 <body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
@@ -242,7 +245,7 @@
 <div class="relative flex flex-col items-center justify-center py-4">
 <svg class="w-48 h-48 transform -rotate-90">
 <circle class="text-slate-800" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="12"></circle>
-<circle id="progressCircle" class="text-emerald-500" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-dasharray="552.92" stroke-dashoffset="552.92" stroke-linecap="round" stroke-width="12"></circle>
+<circle id="progressCircle" class="text-emerald-500" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-dasharray="0" stroke-dashoffset="0" stroke-linecap="round" stroke-width="12"></circle>
 </svg>
 <div class="absolute inset-0 flex flex-col items-center justify-center">
 <span id="resUtil" class="text-5xl font-black tracking-tighter">0 %</span>
@@ -282,10 +285,6 @@
 <section class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm ring-1 ring-outline-variant/10">
 <div class="p-6 border-b border-surface-container flex justify-between items-center">
 <h3 class="text-xl font-extrabold tracking-tight">Detailed Item Placement List</h3>
-<div class="relative">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm" data-icon="search">search</span>
-<input class="pl-10 pr-4 py-2 bg-surface-container rounded-full text-sm border-none focus:ring-2 focus:ring-secondary/20 w-64" placeholder="Filter items..." type="text"/>
-</div>
 </div>
 <div class="overflow-x-auto">
 <table class="w-full text-left">
@@ -300,39 +299,6 @@
 </tr>
 </thead>
 <tbody id="resultTable" class="divide-y divide-surface-container"></tbody>
-<tr class="hover:bg-surface-container-low transition-colors group">
-<td class="px-6 py-4 font-bold text-primary">P-101</td>
-<td class="px-6 py-4 text-sm">Standard Pallet</td>
-<td class="px-6 py-4 text-sm text-slate-500">120 x 80 x 140</td>
-<td class="px-6 py-4 text-sm">850 kg</td>
-<td class="px-6 py-4 text-sm font-mono">0.0, 0.0, 0.0</td>
-<td class="px-6 py-4 text-right">
-<span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded-full uppercase">Locked</span>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-low transition-colors group">
-<td class="px-6 py-4 font-bold text-primary">F-99</td>
-<td class="px-6 py-4 text-sm flex items-center gap-2">
-                                    Fragile Crating 
-                                    <span class="material-symbols-outlined text-[16px] text-secondary" data-icon="eco" style="font-variation-settings: 'FILL' 1;">eco</span>
-</td>
-<td class="px-6 py-4 text-sm text-slate-500">200 x 100 x 180</td>
-<td class="px-6 py-4 text-sm">420 kg</td>
-<td class="px-6 py-4 text-sm font-mono">3.2, 0.0, 0.0</td>
-<td class="px-6 py-4 text-right">
-<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold rounded-full uppercase">Priority</span>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-low transition-colors group">
-<td class="px-6 py-4 font-bold text-primary">P-104</td>
-<td class="px-6 py-4 text-sm">Heavy Machinery</td>
-<td class="px-6 py-4 text-sm text-slate-500">240 x 120 x 200</td>
-<td class="px-6 py-4 text-sm">2,100 kg</td>
-<td class="px-6 py-4 text-sm font-mono">0.0, 1.4, 0.0</td>
-<td class="px-6 py-4 text-right">
-<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold rounded-full uppercase">Caution</span>
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -355,107 +321,50 @@
 <script>
 document.addEventListener("DOMContentLoaded", async () => {
 
-    const res = await fetch("http://localhost:3000/api/optimizations")
+    const res = await fetch("http://localhost:3000/api/latest-result")
     const result = await res.json()
 
-    if(!result.success || result.data.length === 0){
-        alert("No data found")
-        return
-    }
-
-    const data = result.data[0]
-
-    const util = parseFloat(data.utilization)
-    const totalItems = data.total_items
-    const totalWeight = data.total_weight
-
-    document.getElementById("resUtil").innerText = util + "%"
-    document.getElementById("resItems").innerText = totalItems
-    document.getElementById("resWeight").innerText = totalWeight + " kg"
-
-    const totalVolume = 67
-    const used = (util / 100) * totalVolume
-    const empty = totalVolume - used
-
-    document.getElementById("resVolume").innerText = totalVolume.toFixed(1) + " m³"
-    document.getElementById("resEmpty").innerText = empty.toFixed(1) + " m³"
-
-    document.getElementById("resTime").innerText = "1.4s"
-
-    const circle = document.getElementById("progressCircle")
-    const circumference = 552.92
-    const offset = circumference - (util / 100) * circumference
-    circle.style.strokeDashoffset = offset
-
-})
-</script>
-<script>
-function renderTable(){
-
-    const table = document.getElementById("resultTable")
-
-    fetch("http://localhost:3000/api/optimizations")
-    .then(res => res.json())
-    .then(result => {
-
-        const data = result.data[0]
-
-        table.innerHTML = ""
-
-        for(let i=0; i<data.total_items; i++){
-
-            table.innerHTML += `
-            <tr class="hover:bg-surface-container-low">
-                <td class="px-6 py-4 font-bold text-primary">Item-${i+1}</td>
-                <td class="px-6 py-4 text-sm">Standard</td>
-                <td class="px-6 py-4 text-sm text-slate-500">--</td>
-                <td class="px-6 py-4 text-sm">-- kg</td>
-                <td class="px-6 py-4 text-sm font-mono">--</td>
-                <td class="px-6 py-4 text-right">
-                    <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded-full uppercase">
-                        Loaded
-                    </span>
-                </td>
-            </tr>
-            `
-        }
-
-    })
-}
-renderTable()
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", async () => {
-
-    const res = await fetch("http://localhost:3000/api/full-result")
-    const result = await res.json()
+    console.log(result)
 
     if(!result.success){
         console.log("No data yet")
         return
     }
 
-    const run = result.run
-    const items = result.items
+    const run = result.data  
+    const items = JSON.parse(localStorage.getItem("items")) || []
 
     const util = parseFloat(run.utilization)
+
+    const container = JSON.parse(localStorage.getItem("container"))
+    console.log(container)
 
     document.getElementById("resUtil").innerText = util + "%"
     document.getElementById("resItems").innerText = run.total_items
     document.getElementById("resWeight").innerText = run.total_weight + " kg"
 
-    const totalVolume = 67
+    document.querySelector("h1 + p").innerText = "Job ID: #" + run.id
+
+    const totalVolume = (container.length * container.width * container.height) / 1000000
     const used = (util / 100) * totalVolume
     const empty = totalVolume - used
 
     document.getElementById("resVolume").innerText = totalVolume.toFixed(1) + " m³"
     document.getElementById("resEmpty").innerText = empty.toFixed(1) + " m³"
-    document.getElementById("resTime").innerText = "1.4s"
+
+    document.getElementById("resTime").innerText = (run.total_items * 5) + "m"
 
     const circle = document.getElementById("progressCircle")
-    const circumference = 552.92
+
+    const radius = 88
+    const circumference = 2 * Math.PI * radius
+
+    circle.style.strokeDasharray = circumference
+
     const offset = circumference - (util / 100) * circumference
     circle.style.strokeDashoffset = offset
+
+    console.log("Offset:", offset)
 
     const table = document.getElementById("resultTable")
     table.innerHTML = ""
@@ -481,26 +390,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
 })
-</script>
-<script>
-async function loadResult(){
-
-    const res = await fetch("http://localhost:3000/api/latest-result")
-    const result = await res.json()
-
-    if(!result.success){
-        console.log("No data yet")
-        return
-    }
-
-    const data = result.data
-
-    document.getElementById("totalItems").innerText = data.total_items
-    document.getElementById("totalWeight").innerText = data.total_weight + " kg"
-    document.getElementById("utilization").innerText = data.utilization + "%"
-
-}
-
-loadResult()
 </script>
 </body></html>

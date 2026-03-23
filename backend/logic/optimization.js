@@ -4,7 +4,8 @@ function runOptimization(body, callback){
 
     const items = body.items
     const containerType = body.containerType
-    const containerVolume = body.containerVolume || 1000000
+    const container = body.container
+    const containerVolume = container.length * container.width * container.height
 
     if(!items || items.length === 0){
         return callback(true)
@@ -23,7 +24,7 @@ function runOptimization(body, callback){
     }
 
     let utilization = (usedVolume / containerVolume) * 100
-    if(utilization > 100) utilization = 100
+    if(utilization > 90) utilization = 90
     utilization = utilization.toFixed(1)
 
     db.query(
