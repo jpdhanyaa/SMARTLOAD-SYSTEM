@@ -3,7 +3,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Settings | SmartLoad AI</title>
+<title>SmartLoad System</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -82,15 +82,11 @@
 <body class="bg-surface text-on-surface antialiased">
 <nav class="fixed top-0 w-full z-50 bg-emerald-900/60 backdrop-blur-xl shadow-2xl shadow-emerald-950/20 font-manrope antialiased tracking-tight">
 <div class="flex justify-between items-center px-6 py-3 w-full">
-<div class="text-xl font-bold tracking-tighter text-white uppercase">SmartLoad AI</div>
+<div class="text-xl font-bold tracking-tighter text-white uppercase">SmartLoad System</div>
 <div class="hidden md:flex items-center space-gap-6 gap-8">
-<a class="text-emerald-100/70 hover:text-white transition-colors" href="#">Dashboard</a>
-<a class="text-emerald-100/70 hover:text-white transition-colors" href="#">Logistics</a>
-<a class="text-emerald-100/70 hover:text-white transition-colors" href="#">Optimization</a>
-<a class="text-white font-bold border-b-2 border-emerald-400 pb-1" href="#">System Preferences</a>
 </div>
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-emerald-100/70 hover:bg-white/5 p-2 rounded-full transition-all cursor-pointer">notifications</span>
+<div class="flex items-center gap-4"><a href="not.html">
+<span class="material-symbols-outlined text-emerald-100/70 hover:bg-white/5 p-2 rounded-full transition-all cursor-pointer">notifications</span></a>
 <span class="material-symbols-outlined text-white font-bold border-b-2 border-emerald-400 pb-1 p-2 rounded-full transition-all cursor-pointer">settings</span>
 <div class="w-8 h-8 rounded-full overflow-hidden border border-emerald-400/30">
 <img alt="User profile avatar" data-alt="Professional headshot of a male executive" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0Gs5YkPgQzPT2fVvAY564bNLe37WTcEEm92Mbj4yK1itQU3kFyiWZ8PuXQYxlgl-mwWo_429eepd7S0Oa4CRixW7qC3ft2K7PyJuhZOn4O7fSDrbj8UZ-JggkZy21jwTJHqKMiAwykBJyj4t2sef9vImsATNW8M815hy_fYGLKB7K3NGrzMghV3eKakn3d8y9ogyNx6vIZWgFTq2kAuMSN0K3ciYl1Q8ErSh5nvkGFLN2cCwyIUvRh05Nv7QoY4IXwrovYXG9c0k"/>
@@ -106,25 +102,18 @@
 </div>
 <div class="flex flex-col gap-2">
 <a class="text-slate-400 hover:text-white px-4 py-3 ml-2 hover:bg-slate-700/50 transition-all hover:translate-x-1 duration-200 flex items-center gap-3" href="#">
-<span class="material-symbols-outlined">dashboard</span> Dashboard
+<span class="material-symbols-outlined">home</span> Home
             </a>
-<a class="text-slate-400 hover:text-white px-4 py-3 ml-2 hover:bg-slate-700/50 transition-all hover:translate-x-1 duration-200 flex items-center gap-3" href="#">
-<span class="material-symbols-outlined">local_shipping</span> Logistics
-            </a>
-<a class="text-slate-400 hover:text-white px-4 py-3 ml-2 hover:bg-slate-700/50 transition-all hover:translate-x-1 duration-200 flex items-center gap-3" href="#">
+<a class="text-slate-400 hover:text-white px-4 py-3 ml-2 hover:bg-slate-700/50 transition-all hover:translate-x-1 duration-200 flex items-center gap-3" href="home.html">
 <span class="material-symbols-outlined">auto_awesome</span> Optimization
-            </a>
-<a class="text-slate-400 hover:text-white px-4 py-3 ml-2 hover:bg-slate-700/50 transition-all hover:translate-x-1 duration-200 flex items-center gap-3" href="#">
-<span class="material-symbols-outlined">api</span> API Management
-            </a>
-<a class="bg-emerald-800/40 text-emerald-400 border-l-4 border-emerald-500 px-4 py-3 ml-2 rounded-l-lg flex items-center gap-3" href="#">
-<span class="material-symbols-outlined">settings_suggest</span> System Preferences
             </a>
 </div>
 <div class="mt-auto px-6">
+  <a href="optimization.html">
 <button class="w-full py-3 px-4 bg-gradient-to-br from-primary to-primary-container text-white rounded-md font-bold text-sm shadow-lg active:scale-95 transition-transform">
                 New Optimization
             </button>
+</a>
 <div class="mt-6 flex flex-col gap-2">
 <a class="text-slate-400 hover:text-white flex items-center gap-2 text-sm" href="#"><span class="material-symbols-outlined text-base">help</span> Support</a>
 <a class="text-slate-400 hover:text-white flex items-center gap-2 text-sm" href="#"><span class="material-symbols-outlined text-base">person</span> Account</a>
@@ -209,87 +198,6 @@
 <li><a class="flex items-center gap-2 text-on-surface font-medium hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-sm">group</span> Team Access</a></li>
 <li><a class="flex items-center gap-2 text-on-surface font-medium hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-sm">history</span> Audit Trail</a></li>
 </ul>
-</div>
-</section>
-<section class="lg:col-span-12 bg-surface-container-low rounded-xl p-8">
-<div class="mb-8">
-<h2 class="text-2xl font-bold tracking-tight text-on-surface">System Preferences</h2>
-<p class="text-on-surface-variant text-sm">Tailor the optimization engine to your operational standards.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm">
-<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4 block">Visual Theme</label>
-<div class="flex bg-surface-container rounded-full p-1">
-<button class="flex-1 py-2 bg-white shadow-sm rounded-full text-sm font-bold text-on-surface">Light</button>
-<button class="flex-1 py-2 hover:bg-white/50 rounded-full text-sm font-bold text-on-surface-variant">Dark</button>
-<button class="flex-1 py-2 hover:bg-white/50 rounded-full text-sm font-bold text-on-surface-variant">System</button>
-</div>
-</div>
-<div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm">
-<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4 block">Unit Selection</label>
-<select class="w-full bg-surface-container border-none rounded-t-sm focus:ring-0 border-l-2 border-secondary focus:bg-surface-container-high py-3 px-4 text-on-surface font-medium">
-<option>Metric (KG, Meters)</option>
-<option>Imperial (LBS, Feet)</option>
-<option>Hybrid (LBS, Meters)</option>
-</select>
-</div>
-<div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm">
-<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4 block">Default Container Size</label>
-<div class="grid grid-cols-2 gap-2">
-<button class="py-3 px-2 border-2 border-primary bg-primary/5 rounded text-xs font-bold text-primary">40ft High Cube</button>
-<button class="py-3 px-2 border-2 border-transparent bg-surface-container rounded text-xs font-bold text-on-surface-variant">20ft Standard</button>
-</div>
-</div>
-</div>
-</section>
-<section class="lg:col-span-12 bg-surface-container-lowest border-l-4 border-secondary rounded-xl p-8 shadow-sm">
-<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
-<div>
-<h2 class="text-2xl font-bold tracking-tight text-on-surface">API Management</h2>
-<p class="text-on-surface-variant text-sm">Integrate SmartLoad AI directly into your ERP or TMS systems.</p>
-</div>
-<button class="flex items-center gap-2 bg-secondary text-white px-6 py-3 rounded-md font-bold text-sm shadow-lg shadow-secondary/20 hover:translate-y-[-1px] transition-all">
-<span class="material-symbols-outlined text-sm">add</span> Generate New API Key
-                    </button>
-</div>
-<div class="space-y-6">
-<div class="flex flex-col md:flex-row md:items-center justify-between p-6 bg-surface-container-low rounded-lg gap-4">
-<div class="flex items-center gap-4">
-<div class="w-12 h-12 bg-secondary-fixed flex items-center justify-center rounded-lg">
-<span class="material-symbols-outlined text-on-secondary-fixed">key</span>
-</div>
-<div>
-<p class="font-bold text-on-surface">Production_Key_v2</p>
-<p class="text-xs font-mono text-on-surface-variant">sk_live_••••••••••••••••••••4k82</p>
-</div>
-</div>
-<div class="flex items-center gap-6">
-<div class="text-right">
-<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Created</p>
-<p class="text-sm font-medium">Aug 24, 2023</p>
-</div>
-<div class="flex gap-2">
-<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-on-surface-variant"><span class="material-symbols-outlined">visibility</span></button>
-<button class="p-2 hover:bg-error-container hover:text-error rounded-full transition-colors text-on-surface-variant"><span class="material-symbols-outlined">delete</span></button>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-<a class="group flex items-center justify-between p-4 bg-white border border-outline-variant/30 rounded-lg hover:border-secondary transition-all" href="#">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-secondary">description</span>
-<span class="font-bold text-on-surface">Endpoint Documentation</span>
-</div>
-<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</a>
-<a class="group flex items-center justify-between p-4 bg-white border border-outline-variant/30 rounded-lg hover:border-secondary transition-all" href="#">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-secondary">terminal</span>
-<span class="font-bold text-on-surface">Webhooks Guide</span>
-</div>
-<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</a>
-</div>
 </div>
 </section>
 </div>

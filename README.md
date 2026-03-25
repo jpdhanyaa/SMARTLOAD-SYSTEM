@@ -9,5 +9,5 @@ Configure these environment variables before starting (defaults shown):
 - `DB_HOST` (default: `localhost`)
 - `DB_PORT` (default: `3306`)
 - `DB_USER` (default: `root`)
-- `DB_PASS` (default: empty)
+- `DB_PASS` (default: `dhanyaa@2006`)
 - `DB_NAME` (default: `smartload`)
