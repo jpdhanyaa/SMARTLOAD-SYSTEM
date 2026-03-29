@@ -90,9 +90,10 @@
           },
         }
     </script>
+    <title>SmartLoad System</title>
+    <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body class="bg-background text-on-surface antialiased">
-<!-- SideNavBar Component -->
 <aside class="h-screen w-64 fixed left-0 top-0 bg-[#121b2d] dark:bg-[#0a0f1a] shadow-2xl flex flex-col h-full py-6 z-50">
 <div class="px-6 mb-10">
 <h1 class="text-xl font-bold text-white tracking-tight font-headline">SmartLoad System</h1>
@@ -107,7 +108,6 @@
 <span class="material-symbols-outlined" data-icon="package_2">package_2</span>
 <span class="font-medium">New Optimization</span>
 </a>
-<!-- Active Tab: History -->
 <a class="flex items-center gap-3 px-4 py-3 bg-primary-container/20 text-primary-fixed-dim border-l-4 border-primary font-semibold" href="#">
 <span class="material-symbols-outlined" data-icon="history">history</span>
 <span class="font-medium">History</span>
@@ -127,7 +127,6 @@
 </div>
 </div>
 </aside>
-<!-- TopNavBar Component -->
 <header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-white/80 backdrop-blur-md shadow-[0_20px_40px_rgba(18,27,45,0.05)] flex justify-between items-center h-16 px-8">
 <div class="flex items-center gap-4 flex-1">
 <div class="relative w-full max-w-md">
@@ -145,7 +144,6 @@
 </div>
 </div>
 </header>
-<!-- Main Content Canvas -->
 <main class="ml-64 pt-24 pb-12 px-8 min-h-screen">
 <div class="max-w-7xl mx-auto">
 <!-- Page Header -->
@@ -161,7 +159,6 @@
                     </button>
 </div>
 </div>
-<!-- Filter Controls -->
 <section class="bg-surface-container-low p-6 rounded-2xl mb-8 flex flex-wrap gap-6 items-center">
 <div class="flex flex-col gap-1.5">
 <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Date Range</label>
@@ -201,7 +198,6 @@
 </div>
 <button class="mt-5 ml-auto text-primary font-bold text-sm hover:underline">Clear all filters</button>
 </section>
-<!-- Data Table Section -->
 <section class="bg-surface-container-lowest rounded-3xl shadow-[0_20px_40px_rgba(18,27,45,0.03)] overflow-hidden">
 <div class="overflow-x-auto">
 <table class="w-full text-left border-collapse">
@@ -220,7 +216,6 @@
 </tbody>
 </table>
 </div>
-<!-- Pagination -->
 <div class="px-8 py-5 flex items-center justify-between border-t border-surface-container-low">
 <p class="text-sm text-on-surface-variant">Showing <span class="font-bold text-on-surface">1-5</span> of <span class="font-bold text-on-surface">48</span> optimizations</p>
 <div class="flex items-center gap-2">
@@ -236,7 +231,6 @@
 </div>
 </div>
 </section>
-<!-- Quick Insights / Bento Grid Element -->
 </div>
 </main>
 <script>
