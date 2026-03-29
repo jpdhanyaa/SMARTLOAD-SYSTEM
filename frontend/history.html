@@ -1,283 +1,270 @@
 <!DOCTYPE html>
 
-<html class="light" lang="en"><head>
+<html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SmartLoad AI</title>
-<link rel="icon" type="image/png" href="logo.png">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-tertiary-fixed-variant": "#7f2928",
-              "surface": "#faf8ff",
-              "tertiary-fixed": "#ffdad7",
-              "tertiary-fixed-dim": "#ffb3ae",
-              "surface-container-low": "#f2f3ff",
-              "on-surface-variant": "#3d4a42",
-              "secondary": "#4b41e1",
-              "surface-container": "#eaedff",
-              "surface-container-highest": "#dae2fd",
-              "on-error-container": "#93000a",
-              "primary": "#286652",
-              "tertiary": "#9b3e3b",
-              "on-secondary-container": "#fffbff",
-              "on-primary-fixed-variant": "#0b513d",
-              "surface-variant": "#dae2fd",
-              "surface-tint": "#2b6954",
-              "error-container": "#ffdad6",
-              "on-tertiary-container": "#fffbff",
-              "on-primary-container": "#f5fff8",
-              "on-primary-fixed": "#002117",
-              "on-primary": "#ffffff",
-              "on-secondary": "#ffffff",
-              "primary-container": "#43806a",
-              "secondary-fixed": "#e2dfff",
-              "surface-bright": "#faf8ff",
-              "outline": "#6d7a72",
-              "on-background": "#131b2e",
-              "inverse-on-surface": "#eef0ff",
-              "primary-fixed-dim": "#95d3ba",
-              "outline-variant": "#bccac0",
-              "surface-dim": "#d2d9f4",
-              "secondary-fixed-dim": "#c3c0ff",
-              "on-secondary-fixed": "#0f0069",
-              "surface-container-high": "#e2e7ff",
-              "inverse-surface": "#283044",
-              "on-tertiary-fixed": "#410004",
-              "background": "#faf8ff",
-              "on-tertiary": "#ffffff",
-              "primary-fixed": "#b0f0d6",
-              "on-secondary-fixed-variant": "#3323cc",
-              "error": "#ba1a1a",
-              "surface-container-lowest": "#ffffff",
-              "tertiary-container": "#ba5551",
-              "secondary-container": "#645efb",
-              "inverse-primary": "#95d3ba",
-              "on-error": "#ffffff",
-              "on-surface": "#131b2e"
-            },
-            fontFamily: {
-              "headline": ["Manrope"],
-              "body": ["Manrope"],
-              "label": ["Manrope"]
-            },
-            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
-          },
-        },
-      }
-    </script>
 <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
         }
-        body { font-family: 'Manrope', sans-serif; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9ff;
+        }
+        h1, h2, h3, .font-headline {
+            font-family: 'Manrope', sans-serif;
+        }
     </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary-fixed-dim": "#88d6b6",
+                "on-tertiary": "#ffffff",
+                "tertiary": "#8e4744",
+                "tertiary-fixed": "#ffdad7",
+                "background": "#f9f9ff",
+                "surface-container-low": "#f1f3ff",
+                "on-primary-fixed": "#002116",
+                "outline": "#6f7973",
+                "inverse-on-surface": "#edf0ff",
+                "secondary-container": "#8283ff",
+                "secondary-fixed": "#e2dfff",
+                "on-tertiary-fixed-variant": "#743230",
+                "on-error": "#ffffff",
+                "outline-variant": "#bec9c2",
+                "surface-dim": "#d1daf3",
+                "surface-tint": "#156b51",
+                "on-primary": "#ffffff",
+                "on-tertiary-container": "#fffbff",
+                "on-secondary-fixed-variant": "#3533b0",
+                "primary": "#11684f",
+                "inverse-surface": "#283043",
+                "inverse-primary": "#88d6b6",
+                "surface-bright": "#f9f9ff",
+                "surface": "#f9f9ff",
+                "surface-container-lowest": "#ffffff",
+                "on-secondary": "#ffffff",
+                "surface-container-high": "#e0e8ff",
+                "on-tertiary-fixed": "#3b0809",
+                "on-error-container": "#93000a",
+                "error": "#ba1a1a",
+                "on-secondary-fixed": "#0a006b",
+                "primary-container": "#338266",
+                "primary-fixed": "#a4f3d1",
+                "on-background": "#121b2d",
+                "surface-variant": "#dae2fb",
+                "on-primary-fixed-variant": "#00513c",
+                "on-surface": "#121b2d",
+                "tertiary-container": "#ac5f5b",
+                "secondary-fixed-dim": "#c1c1ff",
+                "on-secondary-container": "#120094",
+                "surface-container": "#e9edff",
+                "tertiary-fixed-dim": "#ffb3ae",
+                "secondary": "#4e4ec9",
+                "surface-container-highest": "#dae2fb",
+                "on-surface-variant": "#3f4944",
+                "error-container": "#ffdad6",
+                "on-primary-container": "#f5fff8"
+              },
+              fontFamily: {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
 </head>
-<body class="bg-surface text-on-surface">
-<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-slate-900 flex flex-col pt-20 pb-6 shadow-2xl shadow-emerald-900/20">
+<body class="bg-background text-on-surface antialiased">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#121b2d] dark:bg-[#0a0f1a] shadow-2xl flex flex-col h-full py-6 z-50">
 <div class="px-6 mb-10">
-<h1 class="text-emerald-50 text-lg font-black uppercase tracking-tighter">AI System</h1>
-<p class="text-slate-400 text-xs font-medium">OPTIMIZATION  MODULE</p>
+<h1 class="text-xl font-bold text-white tracking-tight font-headline">SmartLoad System</h1>
+<p class="text-xs text-slate-400 font-medium">Cargo Optimization</p>
 </div>
 <nav class="flex-1 space-y-1">
-<a class="text-slate-400 hover:text-emerald-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold hover:bg-slate-800 transition-all duration-200 hover:translate-x-1" href="home.html">
-<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-                Home
-            </a>
-<a class="text-slate-400 hover:text-emerald-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold hover:bg-slate-800 transition-all duration-200 hover:translate-x-1" href="optimization.html">
-<span class="material-symbols-outlined" data-icon="add_chart">add_chart</span>
-                New Optimization
-            </a>
-<a class="bg-emerald-800/40 text-emerald-400 border-l-4 border-emerald-500 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold" href="history.html">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-slate-800/50" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-medium">Home</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-slate-800/50" href="#">
+<span class="material-symbols-outlined" data-icon="package_2">package_2</span>
+<span class="font-medium">New Optimization</span>
+</a>
+<!-- Active Tab: History -->
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container/20 text-primary-fixed-dim border-l-4 border-primary font-semibold" href="#">
 <span class="material-symbols-outlined" data-icon="history">history</span>
-                History
-            </a>
-<a class="text-slate-400 hover:text-emerald-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm uppercase tracking-widest font-bold hover:bg-slate-800 transition-all duration-200 hover:translate-x-1" href="settings.html">
+<span class="font-medium">History</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-slate-800/50" href="#">
 <span class="material-symbols-outlined" data-icon="settings">settings</span>
-                Settings
-            </a>
+<span class="font-medium">Settings</span>
+</a>
 </nav>
-<div class="px-4 mt-auto">
+<div class="mt-auto px-6 flex items-center gap-3 pt-6 border-t border-slate-800/50">
+<div class="w-10 h-10 rounded-full bg-slate-700 overflow-hidden">
+<img alt="User profile picture" class="w-full h-full object-cover" data-alt="Professional logistics manager headshot in business attire with neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4YC0hkIWURl6WwPDpT7FCKo-29ilyEEPhpVJVhnFPD6nEsW2nk8-J9cuW_nDshHvVlOWeo3J1YhspxWh-QhLKt-bkkqERBp71x_BI4ObUU2fjVI_XQ5FTqZfac-n0qu9bd2GFyB7aY7ouBsMMaboastvNN9iqQGW3-3i3JvRn8atxfgl0GxkSP4D5Xg5qoA5Dx3u5D8ZxrCYmTkRWXgQVw7pZkAWd286u9tOQvMTrcns4DPWusm-ub9wHCIYC_SF9QCqq3Oh3N7w"/>
+</div>
+<div>
+<p class="text-sm font-bold text-white">Alex Chen</p>
+<p class="text-xs text-slate-400">Operations Lead</p>
+</div>
 </div>
 </aside>
-<header class="fixed top-0 w-full z-50 bg-white/60 backdrop-blur-md flex justify-between items-center px-6 py-3 w-full shadow-sm">
-<div class="flex items-center gap-8 ml-64">
-<span class="text-xl font-bold tracking-tighter text-emerald-900">SmartLoad AI</span>
+<!-- TopNavBar Component -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-white/80 backdrop-blur-md shadow-[0_20px_40px_rgba(18,27,45,0.05)] flex justify-between items-center h-16 px-8">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search optimization history..." type="text"/>
 </div>
-<div class="flex items-center gap-4">
-<div class="relative group">
-<span class="absolute inset-y-0 left-3 flex items-center text-slate-400">
-<span class="material-symbols-outlined text-sm" data-icon="search">search</span>
-</span>
-<input id="searchInput" class="pl-10 pr-4 py-1.5 bg-surface-container rounded-full border-none text-sm focus:ring-2 focus:ring-secondary w-64 transition-all" placeholder="Search projects..." type="text"/>
 </div>
-<a href="not.html">
-<button class="p-2 text-emerald-900 hover:bg-emerald-50 rounded-full transition-colors active:scale-95">
-<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
-</button>
-</a>
-<a href="profile.html">
-<button class="p-2 text-emerald-900 hover:bg-emerald-50 rounded-full transition-colors active:scale-95">
-<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
-</button>
-</a>
+<div class="flex items-center gap-6">
+<div class="cursor-pointer active:scale-95 transition-transform hover:bg-slate-50 rounded-full p-2 relative">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
 </div>
-<div class="bg-slate-100 h-[1px] w-full absolute bottom-0 left-0"></div>
+<div class="cursor-pointer active:scale-95 transition-transform hover:bg-slate-50 rounded-full p-2">
+<span class="material-symbols-outlined text-on-surface-variant">account_circle</span>
+</div>
+</div>
 </header>
+<!-- Main Content Canvas -->
 <main class="ml-64 pt-24 pb-12 px-8 min-h-screen">
-<section class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
-<div class="space-y-1">
-<span class="text-secondary font-bold text-xs uppercase tracking-widest">SMARTLOAD AI</span>
-<h2 class="text-3xl font-extrabold text-on-surface tracking-tight">Optimization History</h2>
+<div class="max-w-7xl mx-auto">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+<div>
+<h2 class="text-3xl font-extrabold text-on-background tracking-tight font-headline">Optimization History</h2>
+<p class="text-on-surface-variant mt-1">Review and manage your historical cargo load distributions.</p>
 </div>
-<div class="w-[1px] h-6 bg-outline-variant/20 mx-2"></div>
-<div class="flex bg-surface-container p-1 rounded-lg">
-<button class="p-1.5 bg-white rounded shadow-sm text-primary">
-<span class="material-symbols-outlined text-sm" data-icon="grid_view">grid_view</span>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-5 py-2.5 bg-primary text-on-primary font-bold rounded-xl shadow-lg shadow-primary/20 hover:bg-primary-container transition-all">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                        New Optimization
+                    </button>
+</div>
+</div>
+<!-- Filter Controls -->
+<section class="bg-surface-container-low p-6 rounded-2xl mb-8 flex flex-wrap gap-6 items-center">
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Date Range</label>
+<div class="flex items-center gap-2 bg-surface-container-lowest px-3 py-2 rounded-lg border border-outline-variant/20 shadow-sm">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">calendar_today</span>
+<select class="bg-transparent border-none text-sm font-medium focus:ring-0 cursor-pointer p-0 pr-8">
+<option>Last 30 Days</option>
+<option>Last 3 Months</option>
+<option>Year to Date</option>
+<option>Custom Range</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Container Type</label>
+<div class="flex items-center gap-2 bg-surface-container-lowest px-3 py-2 rounded-lg border border-outline-variant/20 shadow-sm">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">inventory_2</span>
+<select class="bg-transparent border-none text-sm font-medium focus:ring-0 cursor-pointer p-0 pr-8">
+<option>All Types</option>
+<option>20ft Standard</option>
+<option>40ft Standard</option>
+<option>40ft High Cube</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Status</label>
+<div class="flex items-center gap-2 bg-surface-container-lowest px-3 py-2 rounded-lg border border-outline-variant/20 shadow-sm">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">filter_list</span>
+<select class="bg-transparent border-none text-sm font-medium focus:ring-0 cursor-pointer p-0 pr-8">
+<option>All Status</option>
+<option>Completed</option>
+<option>In Progress</option>
+<option>Draft</option>
+</select>
+</div>
+</div>
+<button class="mt-5 ml-auto text-primary font-bold text-sm hover:underline">Clear all filters</button>
+</section>
+<!-- Data Table Section -->
+<section class="bg-surface-container-lowest rounded-3xl shadow-[0_20px_40px_rgba(18,27,45,0.03)] overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-8 py-5 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Optimization ID</th>
+<th class="px-6 py-5 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Date</th>
+<th class="px-6 py-5 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Container Type</th>
+<th class="px-6 py-5 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Space Utilization</th>
+<th class="px-6 py-5 text-xs font-bold text-on-surface-variant uppercase tracking-widest text-center">Items</th>
+<th class="px-6 py-5 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Status</th>
+<th class="px-8 py-5 text-xs font-bold text-on-surface-variant uppercase tracking-widest text-right">Action</th>
+</tr>
+</thead>
+<tbody id="historyTable" class="divide-y divide-surface-container-low">
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-8 py-5 flex items-center justify-between border-t border-surface-container-low">
+<p class="text-sm text-on-surface-variant">Showing <span class="font-bold text-on-surface">1-5</span> of <span class="font-bold text-on-surface">48</span> optimizations</p>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 hover:bg-surface-container-low transition-colors font-medium">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 hover:bg-surface-container-low transition-colors font-medium">3</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
 </button>
 </div>
 </div>
 </section>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="project-card bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col border-l-4 border-primary transition-all hover:shadow-lg hover:-translate-y-1 group" data-name="Warehouse Batch A">
-<div class="flex justify-between items-start mb-6">
-<div>
-<h3 class="font-bold text-lg text-on-background tracking-tight group-hover:text-primary transition-colors">Warehouse Batch A</h3>
-<p class="text-on-surface-variant text-xs font-medium">March 18, 2026 • ID: SL-101</p>
+<!-- Quick Insights / Bento Grid Element -->
 </div>
-<span class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-wider rounded">Completed</span>
-</div>
-<div class="space-y-4 mb-8">
-<div class="flex justify-between text-xs font-bold text-on-surface-variant">
-<span class="uppercase tracking-tighter">SPACE UTILIZATION</span>
-<span class="text-primary">94%</span>
-</div>
-<div class="w-full bg-surface-container rounded-full h-1.5">
-<div class="bg-primary h-1.5 rounded-full" style="width: 94%"></div>
-</div>
-</div>
-<div class="mt-auto flex justify-between items-center pt-4 border-t border-surface-container">
-<div class="flex -space-x-2">
-<div class="w-7 h-7 rounded-full border-2 border-white bg-secondary-fixed flex items-center justify-center text-[10px] font-bold text-on-secondary-fixed">JD</div>
-<div class="w-7 h-7 rounded-full border-2 border-white bg-primary-fixed flex items-center justify-center text-[10px] font-bold text-on-primary-fixed">MS</div>
-</div>
-<button class="text-secondary text-xs font-bold hover:underline underline-offset-4 flex items-center gap-1">
-                        View Details
-                        <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
-</button>
-</div>
-</div>
-<div class="project-card bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col border-l-4 border-error transition-all hover:shadow-lg hover:-translate-y-1 group" data-name="Truck Load Optimization">
-<div class="flex justify-between items-start mb-6">
-<div>
-<h3 class="font-bold text-lg text-on-background tracking-tight group-hover:text-error transition-colors">Truck Load Optimization</h3>
-<p class="text-on-surface-variant text-xs font-medium">March 17, 2026 • ID: SL-102</p>
-</div>
-<span class="px-2 py-1 bg-error/10 text-error text-[10px] font-black uppercase tracking-wider rounded">Alert</span>
-</div>
-<div class="space-y-4 mb-8">
-<div class="flex justify-between text-xs font-bold text-on-surface-variant">
-<span class="uppercase tracking-tighter">Utilization Score</span>
-<span class="text-error">62%</span>
-</div>
-<div class="w-full bg-surface-container rounded-full h-1.5">
-<div class="bg-error h-1.5 rounded-full" style="width: 62%"></div>
-</div>
-</div>
-<div class="mt-auto flex justify-between items-center pt-4 border-t border-surface-container">
-<div class="flex items-center gap-2 text-error text-[10px] font-bold">
-<span class="material-symbols-outlined text-xs" data-icon="warning">warning</span>
-                      LOW SPACE UTILIZATION DETECTED
-                    </div>
-<button class="text-secondary text-xs font-bold hover:underline underline-offset-4 flex items-center gap-1">
-                        View Details
-                        <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
-</button>
-</div>
-</div>
-<div class="project-card bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col border-l-4 border-secondary transition-all hover:shadow-lg hover:-translate-y-1 group" data-name="Container Packing Draft">
-<div class="flex justify-between items-start mb-6">
-<div>
-<h3 class="font-bold text-lg text-on-background tracking-tight group-hover:text-secondary transition-colors">Container Packing Draft</h3>
-<p class="text-on-surface-variant text-xs font-medium">March 16, 2026 • ID: SL-103</p>
-</div>
-<span class="px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-black uppercase tracking-wider rounded">Saved</span>
-</div>
-<div class="space-y-4 mb-8">
-<div class="flex justify-between text-xs font-bold text-on-surface-variant">
-<span class="uppercase tracking-tighter">Utilization Score</span>
-<span class="text-secondary">--%</span>
-</div>
-<div class="w-full bg-surface-container rounded-full h-1.5">
-<div class="bg-surface-container-highest h-1.5 rounded-full w-1/3"></div>
-</div>
-</div>
-<div class="mt-auto flex justify-between items-center pt-4 border-t border-surface-container">
-<p class="text-on-surface-variant text-[10px] italic">Draft last edited by you</p>
-<button class="text-secondary text-xs font-bold hover:underline underline-offset-4 flex items-center gap-1">
-                        Resume
-                        <span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
-</button>
-</div>
-</div>
-<div class="project-card bg-surface-container-low rounded-xl p-6 flex flex-col items-center justify-center text-center border-2 border-dashed border-outline-variant hover:border-primary hover:bg-surface-container-high transition-all group cursor-pointer">
-<div class="w-16 h-16 bg-surface-container-lowest rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm">
-<span class="material-symbols-outlined text-3xl text-primary" data-icon="add_circle">add_circle</span>
-</div>
-<h3 class="font-bold text-lg text-on-background tracking-tight">Start New Optimization</h3>
-<p class="text-on-surface-variant text-sm px-4 mt-2">Enter item details and generate an optimized loading plan instantly.</p>
-<div class="mt-8 flex items-center gap-2 text-primary font-black text-xs uppercase tracking-widest">
-                    Start Project
-                    <span class="material-symbols-outlined text-sm" data-icon="bolt">bolt</span>
-</div>
-</div>
-</div>
-<p id="noResult" class="text-center text-gray-500 mt-10 hidden">
-    No results found
-</p>
 </main>
-<footer class="w-full py-4 mt-auto bg-slate-50 border-t border-slate-200 ml-64 max-w-[calc(100%-16rem)]">
-<div class="flex justify-between items-center px-8 w-full">
-<div class="flex items-center gap-4">
-<span class="font-manrope text-xs tracking-normal font-normal text-slate-500">© 2026 SmartLoad AI System</span>
-</div>
-<div class="flex items-center gap-6">
-</div>
-</div>
-</footer>
 <script>
-const searchInput = document.getElementById("searchInput")
-const cards = document.querySelectorAll(".project-card")
-const noResult = document.getElementById("noResult")
-
-searchInput.addEventListener("input", function () {
-    const value = searchInput.value.toLowerCase()
-    let found = false
-
-    cards.forEach(card => {
-        const name = card.getAttribute("data-name").toLowerCase()
-
-        if (name.includes(value)) {
-            card.style.display = ""  
-            found = true
-        } else {
-            card.style.display = "none"
-        }
-    })
-
-    if (found) {
-        noResult.classList.add("hidden")
-    } else {
-        noResult.classList.remove("hidden")
-    }
-})
+const historyData = [
+  {
+    id: "#OPT-88291",
+    date: "Oct 24, 2023",
+    container: "40ft High Cube",
+    utilization: 94.2,
+    items: 142,
+    status: "Completed"
+  },
+  {
+    id: "#OPT-88285",
+    date: "Oct 23, 2023",
+    container: "20ft Standard",
+    utilization: 78.5,
+    items: 64,
+    status: "In Progress"
+  },
+  {
+    id: "#OPT-88270",
+    date: "Oct 22, 2023",
+    container: "40ft Standard",
+    utilization: 91.0,
+    items: 112,
+    status: "Completed"
+  }
+];
 </script>
 </body></html>
