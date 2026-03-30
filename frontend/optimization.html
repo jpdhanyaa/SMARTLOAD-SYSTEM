@@ -86,9 +86,16 @@
 <div class="hidden md:flex items-center gap-8 font-manrope text-sm font-medium tracking-tight">
 </div>
 <div class="flex items-center gap-4">
-<button class="material-symbols-outlined text-emerald-900 dark:text-emerald-100 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 p-2 rounded-full transition-colors active:scale-95 duration-150" data-icon="notifications">notifications</button>
-<button class="material-symbols-outlined text-emerald-900 dark:text-emerald-100 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 p-2 rounded-full transition-colors active:scale-95 duration-150" data-icon="account_circle">account_circle</button>
+    <a href="not.html">
+<button class="p-2 rounded-full hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors duration-200 active:scale-95 duration-150">
+<span class="material-symbols-outlined text-emerald-900 dark:text-emerald-100" data-icon="notifications">notifications</span>
+</button>
+</a>
+<button class="p-2 rounded-full hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors duration-200 active:scale-95 duration-150">
+<span class="material-symbols-outlined text-emerald-900 dark:text-emerald-100" data-icon="account_circle">account_circle</span>
+</button>
 </div>
+</a>
 <div class="bg-slate-100 dark:bg-slate-800 h-[1px] w-full absolute bottom-0 left-0"></div>
 </nav>
 <aside class="fixed left-0 top-0 h-full w-64 z-40 bg-slate-900 dark:bg-slate-950 flex flex-col h-full pt-20 pb-6 shadow-2xl shadow-emerald-900/20 hidden md:flex">
@@ -373,6 +380,7 @@ document.getElementById("optimizeBtn").addEventListener("click", async () => {
     }
 
     localStorage.setItem("items", JSON.stringify(items))
+    localStorage.setItem("container", JSON.stringify(selectedContainer))
 
     const response = await fetch("http://localhost:3000/api/run-optimization", {
         method: "POST",
@@ -381,17 +389,16 @@ document.getElementById("optimizeBtn").addEventListener("click", async () => {
         },
         body: JSON.stringify({
             containerType: selectedContainer.id,
-            container: {
-                length: selectedContainer.length,
-                width: selectedContainer.width,
-                height: selectedContainer.height
-            },
+            container: selectedContainer,
             items: items
         })
     })
 
     const result = await response.json()
+
     console.log("API RESULT:", result)
+
+    localStorage.setItem("result", JSON.stringify(result))
 
     if(result.success){
         window.location.href = "result.html"

@@ -100,19 +100,19 @@
 <p class="text-xs text-slate-400 font-medium">Cargo Optimization</p>
 </div>
 <nav class="flex-1 space-y-1">
-<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-slate-800/50" href="#">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-slate-800/50" href="home.html">
 <span class="material-symbols-outlined" data-icon="home">home</span>
 <span class="font-medium">Home</span>
 </a>
-<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-slate-800/50" href="#">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-slate-800/50" href="optimization.html">
 <span class="material-symbols-outlined" data-icon="package_2">package_2</span>
 <span class="font-medium">New Optimization</span>
 </a>
-<a class="flex items-center gap-3 px-4 py-3 bg-primary-container/20 text-primary-fixed-dim border-l-4 border-primary font-semibold" href="#">
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container/20 text-primary-fixed-dim border-l-4 border-primary font-semibold">
 <span class="material-symbols-outlined" data-icon="history">history</span>
 <span class="font-medium">History</span>
 </a>
-<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-slate-800/50" href="#">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-slate-800/50" href="settings.html">
 <span class="material-symbols-outlined" data-icon="settings">settings</span>
 <span class="font-medium">Settings</span>
 </a>
@@ -130,7 +130,7 @@
 <header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-white/80 backdrop-blur-md shadow-[0_20px_40px_rgba(18,27,45,0.05)] flex justify-between items-center h-16 px-8">
 <div class="flex items-center gap-4 flex-1">
 <div class="relative w-full max-w-md">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<span id="searchInput" class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
 <input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search optimization history..." type="text"/>
 </div>
 </div>
@@ -218,7 +218,7 @@
 </div>
 <div class="px-8 py-5 flex items-center justify-between border-t border-surface-container-low">
 <p class="text-sm text-on-surface-variant">Showing <span class="font-bold text-on-surface">1-5</span> of <span class="font-bold text-on-surface">48</span> optimizations</p>
-<div class="flex items-center gap-2">
+<div id="pagination" class="flex items-center gap-2">
 <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 hover:bg-surface-container-low transition-colors">
 <span class="material-symbols-outlined">chevron_left</span>
 </button>
@@ -234,187 +234,62 @@
 </div>
 </main>
 <div id="modal" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
-  <div class="bg-white w-full max-w-lg rounded-2xl p-6 shadow-xl relative">
-
-```
+<div class="bg-white w-full max-w-lg rounded-2xl p-6 shadow-xl relative">
 <button id="closeModal" class="absolute top-4 right-4 text-xl">×</button>
-
 <h2 class="text-xl font-bold mb-4">Optimization Details</h2>
-
 <div id="modalContent" class="space-y-3 text-sm"></div>
-```
-
-  </div>
 </div>
-
+</div>
 <script>
-    const modal = document.getElementById("modal");
-const modalContent = document.getElementById("modalContent");
-const closeModal = document.getElementById("closeModal");
-
-function openModal(data) {
-modal.classList.remove("hidden");
-modal.classList.add("flex");
-
-modalContent.innerHTML =
-"<p><b>ID:</b> " + data.id + "</p>" +
-"<p><b>Date:</b> " + data.date + "</p>" +
-"<p><b>Container:</b> " + data.container + "</p>" +
-"<p><b>Utilization:</b> " + data.utilization + "%</p>" +
-"<p><b>Items:</b> " + data.items + "</p>" +
-"<p><b>Status:</b> " + data.status + "</p>";
-}
-closeModal.onclick = function () {
-modal.classList.add("hidden");
-modal.classList.remove("flex");
-};
-
-modal.onclick = function (e) {
-if (e.target === modal) {
-modal.classList.add("hidden");
-modal.classList.remove("flex");
-}
-};
-
 const historyData = [
 { id: "#OPT-88291", date: "Oct 24, 2023", container: "40ft High Cube", utilization: 94.2, items: 142, status: "Completed" },
 { id: "#OPT-88285", date: "Oct 23, 2023", container: "20ft Standard", utilization: 78.5, items: 64, status: "In Progress" },
-{ id: "#OPT-88270", date: "Oct 22, 2023", container: "40ft Standard", utilization: 91.0, items: 112, status: "Completed" },
-{ id: "#OPT-88260", date: "Oct 20, 2023", container: "40ft High Cube", utilization: 88.4, items: 130, status: "Draft" },
-{ id: "#OPT-88250", date: "Oct 18, 2023", container: "20ft Standard", utilization: 70.2, items: 52, status: "Completed" },
-{ id: "#OPT-88240", date: "Oct 15, 2023", container: "40ft Standard", utilization: 95.1, items: 150, status: "Completed" },
-{ id: "#OPT-88230", date: "Oct 12, 2023", container: "20ft Standard", utilization: 60.0, items: 40, status: "Draft" },
-{ id: "#OPT-88220", date: "Oct 10, 2023", container: "40ft High Cube", utilization: 92.7, items: 138, status: "Completed" }
+{ id: "#OPT-88270", date: "Oct 22, 2023", container: "40ft Standard", utilization: 91.0, items: 112, status: "Completed" }
 ];
 
-let filteredData = historyData;
-let currentPage = 1;
-let rowsPerPage = 5;
-
+const searchInput = document.getElementById("searchInput");
 const tableBody = document.getElementById("historyTable");
-const searchInput = document.querySelector("input[placeholder='Search optimization history...']");
-const selects = document.querySelectorAll("select");
-const paginationContainer = document.querySelector(".flex.items-center.gap-2");
 
-function getStatusClass(status) {
-if (status === "Completed") return "bg-green-100 text-green-600 px-3 py-1 rounded-full text-xs font-bold";
-if (status === "In Progress") return "bg-yellow-100 text-yellow-600 px-3 py-1 rounded-full text-xs font-bold";
-return "bg-gray-200 text-gray-600 px-3 py-1 rounded-full text-xs font-bold";
-}
-
-function renderTable() {
+function renderTable(data) {
 tableBody.innerHTML = "";
-let start = (currentPage - 1) * rowsPerPage;
-let paginated = filteredData.slice(start, start + rowsPerPage);
 
-for (let i = 0; i < paginated.length; i++) {
-let d = paginated[i];
+for (let i = 0; i < data.length; i++) {
+let d = data[i];
+
 let row = document.createElement("tr");
 
-```
 row.innerHTML =
-  "<td class='px-8 py-4 font-medium'>" + d.id + "</td>" +
-  "<td class='px-6 py-4'>" + d.date + "</td>" +
-  "<td class='px-6 py-4'>" + d.container + "</td>" +
-  "<td class='px-6 py-4'>" + d.utilization + "%</td>" +
-  "<td class='px-6 py-4 text-center'>" + d.items + "</td>" +
-  "<td class='px-6 py-4'><span class='" + getStatusClass(d.status) + "'>" + d.status + "</span></td>" +
-  "<td class='px-8 py-4 text-right'>"View"</td>";
+"<td class='px-8 py-4'>" + d.id + "</td>" +
+"<td class='px-6 py-4'>" + d.date + "</td>" +
+"<td class='px-6 py-4'>" + d.container + "</td>" +
+"<td class='px-6 py-4'>" + d.utilization + "%</td>" +
+"<td class='px-6 py-4 text-center'>" + d.items + "</td>" +
+"<td class='px-6 py-4'>" + d.status + "</td>" +
+"<td class='px-8 py-4 text-right'>View</td>";
 
 tableBody.appendChild(row);
-```
-
 }
-
-renderPagination();
-}
-
-function renderPagination() {
-paginationContainer.innerHTML = "";
-
-let totalPages = Math.ceil(filteredData.length / rowsPerPage);
-
-let prev = document.createElement("button");
-prev.innerHTML = "‹";
-prev.className = "w-10 h-10 border rounded-lg";
-prev.onclick = function () {
-if (currentPage > 1) {
-currentPage--;
-renderTable();
-}
-};
-paginationContainer.appendChild(prev);
-
-for (let i = 1; i <= totalPages; i++) {
-let btn = document.createElement("button");
-btn.innerHTML = i;
-btn.className = "w-10 h-10 rounded-lg " + (i === currentPage ? "bg-primary text-white" : "border");
-btn.onclick = function () {
-currentPage = i;
-renderTable();
-};
-paginationContainer.appendChild(btn);
-}
-
-let next = document.createElement("button");
-next.innerHTML = "›";
-next.className = "w-10 h-10 border rounded-lg";
-next.onclick = function () {
-if (currentPage < totalPages) {
-currentPage++;
-renderTable();
-}
-};
-paginationContainer.appendChild(next);
-}
-
-function applyFilters() {
-let container = selects[1].value;
-let status = selects[2].value;
-
-filteredData = [];
-
-for (let i = 0; i < historyData.length; i++) {
-let d = historyData[i];
-let match = true;
-
-```
-if (container !== "All Types" && d.container !== container) match = false;
-if (status !== "All Status" && d.status !== status) match = false;
-
-if (match) filteredData.push(d);
-```
-
-}
-
-currentPage = 1;
-renderTable();
 }
 
 function searchData() {
 let value = searchInput.value.toLowerCase();
-filteredData = [];
+let filtered = [];
 
 for (let i = 0; i < historyData.length; i++) {
 let d = historyData[i];
+
 let text = (d.id + d.container + d.status).toLowerCase();
 
-```
 if (text.indexOf(value) !== -1) {
-  filteredData.push(d);
+filtered.push(d);
 }
-```
 }
-currentPage = 1;
-renderTable();
+
+renderTable(filtered);
 }
 
 searchInput.addEventListener("input", searchData);
 
-for (let i = 0; i < selects.length; i++) {
-selects[i].addEventListener("change", applyFilters);
-}
-
-renderTable();
+renderTable(historyData);
 </script>
 </body></html>

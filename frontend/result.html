@@ -105,9 +105,11 @@
 </div>
 </div>
 <div class="flex items-center gap-4">
+    <a href="not.html">
 <button class="p-2 rounded-full hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors duration-200 active:scale-95 duration-150">
 <span class="material-symbols-outlined text-emerald-900 dark:text-emerald-100" data-icon="notifications">notifications</span>
 </button>
+</a>
 <button class="p-2 rounded-full hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors duration-200 active:scale-95 duration-150">
 <span class="material-symbols-outlined text-emerald-900 dark:text-emerald-100" data-icon="account_circle">account_circle</span>
 </button>
@@ -394,25 +396,20 @@ animate()
 </footer>
 </main>
 <script>
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const res = await fetch("http://localhost:3000/api/latest-result")
-    const result = await res.json()
+    const result = JSON.parse(localStorage.getItem("result"))
+    const items = JSON.parse(localStorage.getItem("items")) || []
+    const container = JSON.parse(localStorage.getItem("container"))
 
-    console.log(result)
-
-    if(!result.success){
-        console.log("No data yet")
+    if(!result || !container){
+        alert("No data found ❗")
         return
     }
 
-    const run = result.data  
-    const items = JSON.parse(localStorage.getItem("items")) || []
+    const run = result.data
 
     const util = parseFloat(run.utilization)
-
-    const container = JSON.parse(localStorage.getItem("container"))
-    console.log(container)
 
     document.getElementById("resUtil").innerText = util + "%"
     document.getElementById("resItems").innerText = run.total_items
@@ -430,16 +427,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("resTime").innerText = (run.total_items * 5) + "m"
 
     const circle = document.getElementById("progressCircle")
-
     const radius = 88
     const circumference = 2 * Math.PI * radius
 
     circle.style.strokeDasharray = circumference
-
     const offset = circumference - (util / 100) * circumference
     circle.style.strokeDashoffset = offset
-
-    console.log("Offset:", offset)
 
     const table = document.getElementById("resultTable")
     table.innerHTML = ""
@@ -460,7 +453,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     Loaded
                 </span>
             </td>
-        </tr>        `
+        </tr>`
     }
 })
 </script>
