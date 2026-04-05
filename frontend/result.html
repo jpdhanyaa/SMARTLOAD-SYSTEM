@@ -402,29 +402,55 @@ document.addEventListener("DOMContentLoaded", () => {
     const items = JSON.parse(localStorage.getItem("items")) || []
     const container = JSON.parse(localStorage.getItem("container"))
 
-    if(!result || !container){
+    if (!result || !container) {
         alert("No data found ❗")
         return
     }
 
-    const run = result.data
+    const run = result.data || result
 
-    const util = parseFloat(run.utilization)
+    console.log("RESULT:", result)
+    console.log("RUN:", run)
+    console.log("ITEMS:", items)
+    console.log("CONTAINER:", container)
 
-    document.getElementById("resUtil").innerText = util + "%"
-    document.getElementById("resItems").innerText = run.total_items
-    document.getElementById("resWeight").innerText = run.total_weight + " kg"
+    document.getElementById("resItems").innerText = run.total_items || 0
+    document.getElementById("resWeight").innerText = (run.total_weight || 0) + " kg"
 
-    document.querySelector("h1 + p").innerText = "Job ID: #" + run.id
+    const jobId = run.id || Math.floor(Math.random() * 10000)
+    document.querySelector("h1 + p").innerText = "Job ID: #" + jobId
 
-    const totalVolume = (container.length * container.width * container.height) / 1000000
-    const used = (util / 100) * totalVolume
-    const empty = totalVolume - used
+    const length = Number(container.length) || 0
+const width = Number(container.width) || 0
+const height = Number(container.height) || 0
 
-    document.getElementById("resVolume").innerText = totalVolume.toFixed(1) + " m³"
-    document.getElementById("resEmpty").innerText = empty.toFixed(1) + " m³"
+let usedVolume = 0
 
-    document.getElementById("resTime").innerText = (run.total_items * 5) + "m"
+for(let i = 0; i < items.length; i++){
+    let item = items[i]
+
+    let l = Number(item.length) || 0
+    let w = Number(item.width) || 0
+    let h = Number(item.height) || 0
+
+    let vol = (l * w * h) / 1000000
+    usedVolume += vol
+}
+
+    const totalVolume = (length * width * height) / 1000000
+    const empty = totalVolume - usedVolume
+    const util = totalVolume > 0 ? (usedVolume / totalVolume) * 100 : 0
+
+    console.log("USED:", usedVolume)
+    console.log("TOTAL:", totalVolume)
+    console.log("UTIL:", util)
+
+    document.getElementById("resUtil").innerText = util.toFixed(1) + "%"
+    document.getElementById("resEmpty").innerText = empty.toFixed(2) + " m³"
+    document.getElementById("resVolume").innerText = totalVolume.toFixed(2) + " m³"
+
+    const totalItems = run.total_items || 0
+    document.getElementById("resTime").innerText = (totalItems * 5) + "m"
 
     const circle = document.getElementById("progressCircle")
     const radius = 88
@@ -437,16 +463,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const table = document.getElementById("resultTable")
     table.innerHTML = ""
 
-    for(let i=0;i<items.length;i++){
+    for (let i = 0; i < items.length; i++) {
 
         const item = items[i]
 
         table.innerHTML += `
         <tr class="hover:bg-surface-container-low">
-            <td class="px-6 py-4 font-bold text-primary">${item.name}</td>
+            <td class="px-6 py-4 font-bold text-primary">${item.name || "-"}</td>
             <td class="px-6 py-4 text-sm">${item.fragile ? "Fragile" : "Standard"}</td>
-            <td class="px-6 py-4 text-sm text-slate-500">${item.length} x ${item.width} x ${item.height}</td>
-            <td class="px-6 py-4 text-sm">${item.weight} kg</td>
+            <td class="px-6 py-4 text-sm text-slate-500">
+                ${item.length || 0} x ${item.width || 0} x ${item.height || 0}
+            </td>
+            <td class="px-6 py-4 text-sm">${item.weight || 0} kg</td>
             <td class="px-6 py-4 text-sm font-mono">--</td>
             <td class="px-6 py-4 text-right">
                 <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded-full uppercase">
@@ -455,6 +483,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </td>
         </tr>`
     }
+
 })
 </script>
 </body></html>

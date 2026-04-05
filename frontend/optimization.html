@@ -378,27 +378,42 @@ document.getElementById("optimizeBtn").addEventListener("click", async () => {
         alert("Add items first ❗")
         return
     }
-
     localStorage.setItem("items", JSON.stringify(items))
     localStorage.setItem("container", JSON.stringify(selectedContainer))
 
     const response = await fetch("http://localhost:3000/api/run-optimization", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            containerType: selectedContainer.id,
-            container: selectedContainer,
-            items: items
-        })
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        containerType: selectedContainer.id,
+        container: selectedContainer,
+        items: items
+      })
     })
 
     const result = await response.json()
 
     console.log("API RESULT:", result)
 
-    localStorage.setItem("result", JSON.stringify(result))
+    let totalItems = items.length
+
+    let totalWeight = 0
+    for(let i = 0; i < items.length; i++){
+      totalWeight += Number(items[i].weight) || 0
+    }
+
+  let finalResult = {
+    id: Date.now(),
+    utilization: result.data?.utilization || result.utilization || 0,
+    total_items: totalItems,
+    total_weight: totalWeight
+  }
+
+  console.log("FINAL RESULT:", finalResult)
+
+  localStorage.setItem("result", JSON.stringify(finalResult))
 
     if(result.success){
         window.location.href = "result.html"
@@ -406,10 +421,8 @@ document.getElementById("optimizeBtn").addEventListener("click", async () => {
         alert("Error ❌")
     }
 })
-
 renderTable()
 </script>
-
 <script>
 function updateCustomLive() {
     let l = document.getElementById("customLength").value;
